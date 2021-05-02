@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Graph-Creation\Create_Graph.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Graph-Creation\Create_Graph_Type.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Register.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Register2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Graph-Creation\Create_Graph.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Graph-Creation\Create_Graph_Type.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Register.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Register2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WPF-Ressources\NBT2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WPF-Ressources\NewMenuTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WPF-Ressources\NewButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WPF-Ressources\TextButtonTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

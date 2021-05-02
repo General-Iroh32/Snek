@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snek", "Snek\Snek.csproj", "{D7C6E271-9845-4872-9CAC-A2F5A85D3F62}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7C6E271-9845-4872-9CAC-A2F5A85D3F62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7C6E271-9845-4872-9CAC-A2F5A85D3F62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7C6E271-9845-4872-9CAC-A2F5A85D3F62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7C6E271-9845-4872-9CAC-A2F5A85D3F62}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E6B9C2C-8991-432C-82FB-1A7D554073C5}
+	EndGlobalSection
+EndGlobal
