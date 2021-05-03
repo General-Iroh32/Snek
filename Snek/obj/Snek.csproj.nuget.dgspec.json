@@ -50,13 +50,17 @@
               "target": "Package",
               "version": "[4.0.2, )"
             },
+            "LiveCharts.Wpf": {
+              "target": "Package",
+              "version": "[0.9.7, )"
+            },
             "MahApps.Metro.IconPacks.Material": {
               "target": "Package",
               "version": "[4.8.0, )"
             },
             "MySql.Data": {
               "target": "Package",
-              "version": "[8.0.23, )"
+              "version": "[8.0.24, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",

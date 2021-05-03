@@ -68,4 +68,5 @@ C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Snek.genruntimeconfig.
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\WPF-Ressources\NBT2.baml
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_Graph_Type.g.cs
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_Graph_Type.baml
-C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Snek.csprojAssemblyReference.cache
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Graph_Creator.g.cs
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Graph_Creator.baml

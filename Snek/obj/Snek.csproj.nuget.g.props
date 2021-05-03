@@ -18,6 +18,7 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgLiveCharts_Wpf Condition=" '$(PkgLiveCharts_Wpf)' == '' ">C:\Users\Dzova\.nuget\packages\livecharts.wpf\0.9.7</PkgLiveCharts_Wpf>
     <PkgExtended_Wpf_Toolkit Condition=" '$(PkgExtended_Wpf_Toolkit)' == '' ">C:\Users\Dzova\.nuget\packages\extended.wpf.toolkit\4.0.2</PkgExtended_Wpf_Toolkit>
   </PropertyGroup>
 </Project>

@@ -13,6 +13,9 @@
     <Compile Update="Graph-Creation\Create_Graph_Type.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Graph-Creation\Graph_Creator.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Register.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Graph-Creation\Create_Graph_Type.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Graph-Creation\Graph_Creator.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

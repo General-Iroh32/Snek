@@ -43,6 +43,21 @@ namespace Snek.Graph_Creation
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string text = lst.SelectedItem.ToString();
 
+            Graph_Creator graph_Creator = new Graph_Creator(text);
+            graph_Creator.Show();
+            this.Close();
+        }
+
+        private void ListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            if (lst.SelectedItem != null)
+            {
+                Buttond.IsEnabled = true;
+            }
+        }
     }
 }
