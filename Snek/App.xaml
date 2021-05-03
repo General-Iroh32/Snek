@@ -2,6 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Snek"
+             xmlns:viewModel="clr-namespace:Snek.Graph_Creation.ViewModel"
+             xmlns:view="clr-namespace:Snek.Graph_Creation"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -10,7 +12,11 @@
                 <ResourceDictionary Source="\wpf-ressources\NewMenuTheme.xaml"/>
                 <ResourceDictionary Source="\wpf-ressources\TextButtonTheme.xaml"/>
                 <ResourceDictionary Source="\wpf-ressources\NBT2.xaml"/>
+                  
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView></view:HomeView>
+            </DataTemplate>
         </ResourceDictionary>   
     </Application.Resources>
 </Application>

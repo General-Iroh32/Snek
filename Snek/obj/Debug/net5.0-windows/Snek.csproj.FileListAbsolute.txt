@@ -20,8 +20,6 @@ C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\MahApps.Metro.IconPack
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\MySql.Data.dll
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Ubiety.Dns.Core.dll
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Zstandard.Net.dll
-C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Renci.SshNet.dll
-C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\SshNet.Security.Cryptography.dll
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\de\Xceed.Wpf.AvalonDock.resources.dll
@@ -70,3 +68,8 @@ C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_Graph_Type.baml
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Graph_Creator.g.cs
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Graph_Creator.baml
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\LiveCharts.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\LiveCharts.Wpf.dll
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\HomeView.g.cs
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\HomeView.baml

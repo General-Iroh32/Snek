@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Dzova\Desktop\Snek\Snek\App.xaml
-10-490403371
+11-1100599814
 
-11-641284252
+18-1106692343
 211-1996642318
-Graph-Creation\Create_Graph.xaml;Graph-Creation\Create_Graph_Type.xaml;Graph-Creation\Graph_Creator.xaml;MainWindow.xaml;Register.xaml;Register2.xaml;WPF-Ressources\NBT2.xaml;WPF-Ressources\NewButtonTheme.xaml;WPF-Ressources\NewMenuTheme.xaml;WPF-Ressources\TextButtonTheme.xaml;
+Graph-Creation\Create_Graph.xaml;Graph-Creation\Create_Graph_Type.xaml;Graph-Creation\Graph_Creator.xaml;Graph-Creation\View\HomeView.xaml;MainWindow.xaml;Register.xaml;Register2.xaml;WPF-Ressources\NBT2.xaml;WPF-Ressources\NewButtonTheme.xaml;WPF-Ressources\NewMenuTheme.xaml;WPF-Ressources\TextButtonTheme.xaml;
 
 True
 

@@ -1,16 +1,20 @@
 ﻿<Window x:Class="Snek.Graph_Creation.Create_Graph"
-         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Snek"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:viewModels="clr-namespace:Snek.Graph_Creation.ViewModel"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Snek" Height="600" Width="920" Icon="\Images\favicon.ico"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
+    <Window.DataContext>
+        <viewModels:Create_Graph_ViewModel/>
+    </Window.DataContext>
     <Border Background="#252526" CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -41,18 +45,21 @@
                                 FontSize="14"
                                 Style="{StaticResource MenuButtonTheme}"
                                 IsChecked="True"
+                                Command="{Binding HomeViewCommand}"
                                 ></RadioButton>
                 <RadioButton    Content="Über uns"
                                 Height="50"
                                 Foreground="White"
                                 FontSize="14"
                                 Style="{StaticResource MenuButtonTheme}" 
+                                Command="{Binding UeberUnsCommand}"
                                 ></RadioButton>
                 <RadioButton    Content="Einstellungen"
                                 Height="50"
                                 Foreground="White"
                                 FontSize="14"
                                 Style="{StaticResource MenuButtonTheme}"
+                                Command="{Binding EinstellungenViewCommand}"
                                 ></RadioButton>
             </StackPanel>
             <TextBox Width="250"
@@ -64,50 +71,8 @@
                        Style="{StaticResource ModernTextbox}">
 
             </TextBox>
-            <Canvas Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="20,8,0,12">
-
-                <TextBlock Text="Jetzt Anfangen!"
-                           FontFamily="helvetica"
-                           FontSize="17"
-                           Foreground="LightGray" Canvas.Left="384" Canvas.Top="57"/>
-                <TextBlock Text="Letzte Projekte"
-                           FontFamily="helvetica"
-                           FontSize="17"
-                           Foreground="LightGray" Canvas.Left="30" Canvas.Top="57"/>
-                <Button    Content="Vorlagen durchsuchen"
-                                Height="85"
-                                Foreground="White"
-                                FontSize="14"
-                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="262" Width="250"
-                                ></Button>
-                <Button    Content="Graph öffnen"
-                                Height="85"
-                                Foreground="White"
-                                FontSize="14"
-                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="172" Width="250"
-                                />
-
-                <Button   Content="Graph erstellen"
-                                Height="85"
-                                Foreground="White"
-                                FontSize="14"
-                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="82" Width="250" Click="Button_Click_1"
-                                ></Button>
-                <Button    Content="Ausloggen"
-                                Height="46"
-                                Foreground="White"
-                                FontSize="14"
-                                Canvas.Left="539" Canvas.Top="444" Width="146" Click="Button_Click"
-                                >
-                </Button>
-                <StackPanel Height="414" Width="284" Canvas.Left="30" Canvas.Top="90">
-                    <TextBlock>
-
-                    </TextBlock>
-                </StackPanel>
-            </Canvas>
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" Content="{Binding CurrentView}"></ContentControl>
+            
         </Grid>
 
     </Border>

@@ -33,6 +33,9 @@
     <Page Update="Graph-Creation\Graph_Creator.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Graph-Creation\View\HomeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

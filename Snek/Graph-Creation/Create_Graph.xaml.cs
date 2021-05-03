@@ -56,5 +56,10 @@ namespace Snek.Graph_Creation
             main.Show();
             this.Close();
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

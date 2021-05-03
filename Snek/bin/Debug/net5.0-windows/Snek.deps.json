@@ -9,8 +9,9 @@
       "Snek/1.0.0": {
         "dependencies": {
           "Extended.Wpf.Toolkit": "4.0.2",
+          "LiveCharts.Wpf": "0.9.7",
           "MahApps.Metro.IconPacks.Material": "4.8.0",
-          "MySql.Data": "8.0.23",
+          "MySql.Data": "8.0.24",
           "System.Data.SqlClient": "4.8.2"
         },
         "runtime": {
@@ -87,14 +88,15 @@
           }
         }
       },
-      "Google.Protobuf/3.11.4": {
+      "Google.Protobuf/3.14.0": {
         "dependencies": {
-          "System.Memory": "4.5.3"
+          "System.Memory": "4.5.3",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
         },
         "runtime": {
           "lib/netstandard2.0/Google.Protobuf.dll": {
-            "assemblyVersion": "3.11.4.0",
-            "fileVersion": "3.11.4.0"
+            "assemblyVersion": "3.14.0.0",
+            "fileVersion": "3.14.0.0"
           }
         }
       },
@@ -132,6 +134,25 @@
           }
         }
       },
+      "LiveCharts/0.9.7": {
+        "runtime": {
+          "lib/net45/LiveCharts.dll": {
+            "assemblyVersion": "0.9.7.0",
+            "fileVersion": "0.9.7.0"
+          }
+        }
+      },
+      "LiveCharts.Wpf/0.9.7": {
+        "dependencies": {
+          "LiveCharts": "0.9.7"
+        },
+        "runtime": {
+          "lib/net45/LiveCharts.Wpf.dll": {
+            "assemblyVersion": "0.9.7.0",
+            "fileVersion": "0.9.7.0"
+          }
+        }
+      },
       "MahApps.Metro.IconPacks.Material/4.8.0": {
         "runtime": {
           "lib/netcoreapp3.1/MahApps.Metro.IconPacks.Core.dll": {
@@ -156,14 +177,13 @@
           "Microsoft.NETCore.Platforms": "3.1.0"
         }
       },
-      "MySql.Data/8.0.23": {
+      "MySql.Data/8.0.24": {
         "dependencies": {
           "BouncyCastle.NetCore": "1.8.5",
-          "Google.Protobuf": "3.11.4",
+          "Google.Protobuf": "3.14.0",
           "K4os.Compression.LZ4": "1.1.11",
           "K4os.Compression.LZ4.Streams": "1.1.11",
           "K4os.Hash.xxHash": "1.0.6",
-          "SSH.NET": "2020.0.0-beta1",
           "System.Buffers": "4.5.1",
           "System.Configuration.ConfigurationManager": "4.4.1",
           "System.Security.Permissions": "4.7.0",
@@ -171,8 +191,8 @@
         },
         "runtime": {
           "lib/net5.0/MySql.Data.dll": {
-            "assemblyVersion": "8.0.23.0",
-            "fileVersion": "8.0.23.0"
+            "assemblyVersion": "8.0.24.0",
+            "fileVersion": "8.0.24.0"
           },
           "lib/net5.0/Ubiety.Dns.Core.dll": {
             "assemblyVersion": "2.2.1.0",
@@ -218,25 +238,6 @@
           }
         }
       },
-      "SSH.NET/2020.0.0-beta1": {
-        "dependencies": {
-          "SshNet.Security.Cryptography": "1.3.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Renci.SshNet.dll": {
-            "assemblyVersion": "2020.0.0.0",
-            "fileVersion": "2020.0.0.0"
-          }
-        }
-      },
-      "SshNet.Security.Cryptography/1.3.0": {
-        "runtime": {
-          "lib/netstandard2.0/SshNet.Security.Cryptography.dll": {
-            "assemblyVersion": "1.3.0.0",
-            "fileVersion": "1.3.0.0"
-          }
-        }
-      },
       "System.Buffers/4.5.1": {},
       "System.Configuration.ConfigurationManager/4.4.1": {
         "dependencies": {
@@ -277,6 +278,7 @@
         }
       },
       "System.Memory/4.5.3": {},
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {},
       "System.Security.AccessControl/4.7.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -323,12 +325,12 @@
       "path": "extended.wpf.toolkit/4.0.2",
       "hashPath": "extended.wpf.toolkit.4.0.2.nupkg.sha512"
     },
-    "Google.Protobuf/3.11.4": {
+    "Google.Protobuf/3.14.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dajCxjDCiPyZuqwZCkFJTwhn/0TJ5VesIs4fXvs56ez1VUi68JjhYMMsPjnJ9gcPqJwTMtXMU1WqUdXYiG1x4w==",
-      "path": "google.protobuf/3.11.4",
-      "hashPath": "google.protobuf.3.11.4.nupkg.sha512"
+      "sha512": "sha512-9AkodyGNmLI+wJJPbwpWLmh4BMHoXDQ9+8qvDPhQQi/BNsleqKMBn3OlyLwC6CALwan2kc5+Cenb8fJSITX3nQ==",
+      "path": "google.protobuf/3.14.0",
+      "hashPath": "google.protobuf.3.14.0.nupkg.sha512"
     },
     "K4os.Compression.LZ4/1.1.11": {
       "type": "package",
@@ -350,6 +352,20 @@
       "sha512": "sha512-jCfNP0inx1sGcP3KSbpiDEH3km2e1sVBjMfKo+V92jr1dL4ZYgA1uhRMl1wAtdGZcbObXIikKqtVlgx3j/CW6g==",
       "path": "k4os.hash.xxhash/1.0.6",
       "hashPath": "k4os.hash.xxhash.1.0.6.nupkg.sha512"
+    },
+    "LiveCharts/0.9.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p4xyBrUaNNfkWZSNsIle0r51cyVyFg0Yi0uBRZM5GQtdFiA/7guZHlffFyNUILIdux10Ch2hUaJpcZENVU9aaQ==",
+      "path": "livecharts/0.9.7",
+      "hashPath": "livecharts.0.9.7.nupkg.sha512"
+    },
+    "LiveCharts.Wpf/0.9.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lv6YZoK0B4yWykMq5b9grZXtIbTj+OWu4sVN9GDpdgV6zffu64m4d5CW8KSjfSl9rB8VU649x1NZvhoU67hCDg==",
+      "path": "livecharts.wpf/0.9.7",
+      "hashPath": "livecharts.wpf.0.9.7.nupkg.sha512"
     },
     "MahApps.Metro.IconPacks.Material/4.8.0": {
       "type": "package",
@@ -379,12 +395,12 @@
       "path": "microsoft.win32.systemevents/4.7.0",
       "hashPath": "microsoft.win32.systemevents.4.7.0.nupkg.sha512"
     },
-    "MySql.Data/8.0.23": {
+    "MySql.Data/8.0.24": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5UPKd+OX5aSR8fTTfWzAifYg8YKOWMVX39bkdGbI3/SB3khdE13DZVMrk6CzjXvo2BjXic9emf2lwgvJTVWnyg==",
-      "path": "mysql.data/8.0.23",
-      "hashPath": "mysql.data.8.0.23.nupkg.sha512"
+      "sha512": "sha512-6WdIHP1w8XZRo0rxihmiToJUSLQaNgPKbowspGDulIKlkk/Oh1JCsX3nYX9MtreoUFa01QGfOS4qOqFpOC+ePQ==",
+      "path": "mysql.data/8.0.24",
+      "hashPath": "mysql.data.8.0.24.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
       "type": "package",
@@ -413,20 +429,6 @@
       "sha512": "sha512-YhEdSQUsTx+C8m8Bw7ar5/VesXvCFMItyZF7G1AUY+OM0VPZUOeAVpJ4Wl6fydBGUYZxojTDR3I6Bj/+BPkJNA==",
       "path": "runtime.win-x86.runtime.native.system.data.sqlclient.sni/4.4.0",
       "hashPath": "runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512"
-    },
-    "SSH.NET/2020.0.0-beta1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-GdgJ3eFSEXkGIror8SfxbXKJM/g0Eofm4bM6LIYANSM1foOJc640adnr1dqs2BTf/MKwL+9NqOUm3RvQm1CxtA==",
-      "path": "ssh.net/2020.0.0-beta1",
-      "hashPath": "ssh.net.2020.0.0-beta1.nupkg.sha512"
-    },
-    "SshNet.Security.Cryptography/1.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-5pBIXRjcSO/amY8WztpmNOhaaCNHY/B6CcYDI7FSTgqSyo/ZUojlLiKcsl+YGbxQuLX439qIkMfP0PHqxqJi/Q==",
-      "path": "sshnet.security.cryptography/1.3.0",
-      "hashPath": "sshnet.security.cryptography.1.3.0.nupkg.sha512"
     },
     "System.Buffers/4.5.1": {
       "type": "package",
@@ -462,6 +464,13 @@
       "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "path": "system.memory/4.5.3",
       "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
     },
     "System.Security.AccessControl/4.7.0": {
       "type": "package",
