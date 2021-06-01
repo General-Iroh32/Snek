@@ -12,6 +12,7 @@ namespace Snek
     /// </summary>
     public partial class MainWindow : Window
     {
+        SqlConnection sqlCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dzova\Desktop\Snek\Snek\Database\Register_Database.mdf;Integrated Security=True;Password=Snek");
         public MainWindow()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace Snek
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dzova\Desktop\Snek\Snek\Database\Register_Database.mdf;Integrated Security=True");
+
             try
             {
                 if (sqlCon.State == ConnectionState.Closed)

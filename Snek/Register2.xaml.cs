@@ -16,6 +16,7 @@ namespace Snek
         private string Email = "";
         private string Telefonnummer = "";
         private string Datum = "";
+        SqlConnection sqlCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dzova\Desktop\Snek\Snek\Database\Register_Database.mdf;Integrated Security=True;Password=Snek");
         public Register2()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Snek
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dzova\Desktop\Snek\Snek\Database\Register_Database.mdf;Integrated Security=True;Password=Snek");
+
             if (Adresse.Text != "" && Adresse.Text != "Adresse")
             {
                 if (Geschlecht.SelectedItem != null && Geschlecht.Text != "")

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ugU2Ocq+9Y1jpve/6eKvN+r3otIeOKWGLXIWGNZZk5u6nXWF0sRpk/DrNsxnzAgHH5joY/5vPtvMT1O6+rjuQA==",
+  "dgSpecHash": "gwV7ZX77IeOs3aTTqOsJweWGI1E0az9n4EIJQbpUJLnzsnLFm5v3er1y9MCPHYDC7ImOMqbqiIVZreLBcFeXrg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dzova\\Desktop\\Snek\\Snek\\Snek.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dzova\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
+    "C:\\Users\\Dzova\\.nuget\\packages\\documentformat.openxml\\2.13.0\\documentformat.openxml.2.13.0.nupkg.sha512",
     "C:\\Users\\Dzova\\.nuget\\packages\\extended.wpf.toolkit\\4.0.2\\extended.wpf.toolkit.4.0.2.nupkg.sha512",
     "C:\\Users\\Dzova\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
     "C:\\Users\\Dzova\\.nuget\\packages\\k4os.compression.lz4\\1.1.11\\k4os.compression.lz4.1.1.11.nupkg.sha512",
@@ -25,6 +26,7 @@
     "C:\\Users\\Dzova\\.nuget\\packages\\system.configuration.configurationmanager\\4.4.1\\system.configuration.configurationmanager.4.4.1.nupkg.sha512",
     "C:\\Users\\Dzova\\.nuget\\packages\\system.data.sqlclient\\4.8.2\\system.data.sqlclient.4.8.2.nupkg.sha512",
     "C:\\Users\\Dzova\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\Dzova\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
     "C:\\Users\\Dzova\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\Dzova\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\Dzova\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",

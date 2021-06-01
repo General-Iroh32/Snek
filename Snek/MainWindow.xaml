@@ -44,6 +44,7 @@
             <StackPanel Grid.Row="1" >
                 <StackPanel Orientation="Horizontal">
                     <TextBox Name ="txtUsername"
+                              
                              FontFamily="Helvetica"
                              FontWeight="Light"
                              Text="Username"
@@ -56,7 +57,9 @@
                              HorizontalContentAlignment="Left"
                              Opacity="0.5"
                              Height="25"
-                             Margin="63,0,0,0"/>
+                             Margin="63,0,0,0">
+                        
+                    </TextBox>
                     <iconPacks:PackIconMaterial Kind="Account" 
                                                 VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 

@@ -7,12 +7,14 @@ namespace Snek.Graph_Creation.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand EinstellungenViewCommand { get; set; }
         public RelayCommand UeberUnsCommand { get; set; }
+        public RelayCommand PosCommand { get; set; }
 
         public object _currentView;
 
         public EinstellungViewModel EinstellungViewModel { get; set; }
         public HomeViewModel HomeViewModel { get; set; }
         public UeberUnsViewModel UeberUnsViewModel { get; set; }
+        public PosViewModel PosViewModel { get; set; }
         public object CurrentView { get { return _currentView; } set { _currentView = value; OnPropertyChanged(); } }
 
         public Create_Graph_ViewModel()
@@ -23,7 +25,8 @@ namespace Snek.Graph_Creation.ViewModel
 
             HomeViewCommand = new RelayCommand(a => { CurrentView = HomeViewModel; });
             EinstellungenViewCommand = new RelayCommand(a => { CurrentView = EinstellungenViewCommand; });
-            UeberUnsCommand = new RelayCommand(a => { CurrentView = UeberUnsCommand; });
+            UeberUnsCommand = new RelayCommand(a => { CurrentView = UeberUnsViewModel; });
+            PosCommand = new RelayCommand(a => { CurrentView = PosCommand; });
             CurrentView = HomeViewModel;
         }
     }

@@ -61,6 +61,13 @@
                                 Style="{StaticResource MenuButtonTheme}"
                                 Command="{Binding EinstellungenViewCommand}"
                                 ></RadioButton>
+                <RadioButton    Content="Pos-Kriterien"
+                                Height="50"
+                                Foreground="White"
+                                FontSize="14"
+                                Style="{StaticResource MenuButtonTheme}" 
+                                Command="{Binding PosCommand}"
+                                ></RadioButton>
             </StackPanel>
             <TextBox Width="250"
                        Height="40"

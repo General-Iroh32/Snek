@@ -25,7 +25,7 @@ namespace Snek
         {
             if (Vorname.Text != "" && Vorname.Text != "Vorname")
             {
-                if (Nachname.Text != "" && Nachname.Text != "Vorname")
+                if (Nachname.Text != "" && Nachname.Text != "Nachname")
                 {
                     if (Datum.SelectedDate.HasValue && Datum.SelectedDate.Value <= DateTime.UtcNow)
                     {

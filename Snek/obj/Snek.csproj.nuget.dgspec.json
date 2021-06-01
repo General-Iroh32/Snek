@@ -46,6 +46,10 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[2.13.0, )"
+            },
             "Extended.Wpf.Toolkit": {
               "target": "Package",
               "version": "[4.0.2, )"

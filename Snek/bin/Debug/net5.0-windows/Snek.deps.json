@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "Snek/1.0.0": {
         "dependencies": {
+          "DocumentFormat.OpenXml": "2.13.0",
           "Extended.Wpf.Toolkit": "4.0.2",
           "LiveCharts.Wpf": "0.9.7",
           "MahApps.Metro.IconPacks.Material": "4.8.0",
@@ -23,6 +24,17 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.8.5.0",
             "fileVersion": "1.8.19031.1"
+          }
+        }
+      },
+      "DocumentFormat.OpenXml/2.13.0": {
+        "dependencies": {
+          "System.IO.Packaging": "4.7.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DocumentFormat.OpenXml.dll": {
+            "assemblyVersion": "2.13.0.0",
+            "fileVersion": "2.13.0.0"
           }
         }
       },
@@ -277,6 +289,7 @@
           "Microsoft.Win32.SystemEvents": "4.7.0"
         }
       },
+      "System.IO.Packaging/4.7.0": {},
       "System.Memory/4.5.3": {},
       "System.Runtime.CompilerServices.Unsafe/4.5.2": {},
       "System.Security.AccessControl/4.7.0": {
@@ -317,6 +330,13 @@
       "sha512": "sha512-6uxsQw2UXrt82VQAWC2td3oBSJjUZ3P4u4DliagB8wf67KsU53V8sW9xwdF+IwZOOZFR0TCZuv/YKZ2BlrfAag==",
       "path": "bouncycastle.netcore/1.8.5",
       "hashPath": "bouncycastle.netcore.1.8.5.nupkg.sha512"
+    },
+    "DocumentFormat.OpenXml/2.13.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0m9oxdnAwIyq6+0L/bGfyPkkakPuVI/zT5AYQgN5jbMmNJkCVFLiZmtjtqXrTbStCBJu/yxS3nS/6zTe2mT1Nw==",
+      "path": "documentformat.openxml/2.13.0",
+      "hashPath": "documentformat.openxml.2.13.0.nupkg.sha512"
     },
     "Extended.Wpf.Toolkit/4.0.2": {
       "type": "package",
@@ -457,6 +477,13 @@
       "sha512": "sha512-v+XbyYHaZjDfn0ENmJEV1VYLgGgCTx1gnfOBcppowbpOAriglYgGCvFCPr2EEZyBvXlpxbEsTwkOlInl107ahA==",
       "path": "system.drawing.common/4.7.0",
       "hashPath": "system.drawing.common.4.7.0.nupkg.sha512"
+    },
+    "System.IO.Packaging/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9VV4KAbgRQZ79iEoG40KIeZy38O30oWwewScAST879+oki8g/Wa2HXZQgrhDDxQM4GkP1PnRJll05NMiVPbYAw==",
+      "path": "system.io.packaging/4.7.0",
+      "hashPath": "system.io.packaging.4.7.0.nupkg.sha512"
     },
     "System.Memory/4.5.3": {
       "type": "package",

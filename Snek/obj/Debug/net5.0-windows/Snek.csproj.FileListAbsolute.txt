@@ -73,3 +73,6 @@ C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\LiveCharts.Wpf.dll
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\HomeView.g.cs
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\HomeView.baml
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.g.cs
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.baml
