@@ -27,6 +27,10 @@ namespace Snek.Graph_Creation.ViewModel
             EinstellungenViewCommand = new RelayCommand(a => { CurrentView = EinstellungenViewCommand; });
             UeberUnsCommand = new RelayCommand(a => { CurrentView = UeberUnsViewModel; });
             PosCommand = new RelayCommand(a => { CurrentView = PosCommand; });
+            /* PosCommand = new RelayCommand(a => { CurrentView = PosCommand; });
+            *neue View in view ordner 
+             *in app.xaml adden 
+             */
             CurrentView = HomeViewModel;
         }
     }
