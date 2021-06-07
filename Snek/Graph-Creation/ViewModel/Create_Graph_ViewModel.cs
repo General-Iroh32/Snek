@@ -22,7 +22,6 @@ namespace Snek.Graph_Creation.ViewModel
             EinstellungViewModel = new EinstellungViewModel();
             HomeViewModel = new HomeViewModel();
             UeberUnsViewModel = new UeberUnsViewModel();
-
             HomeViewCommand = new RelayCommand(a => { CurrentView = HomeViewModel; });
             EinstellungenViewCommand = new RelayCommand(a => { CurrentView = EinstellungenViewCommand; });
             UeberUnsCommand = new RelayCommand(a => { CurrentView = UeberUnsViewModel; });
