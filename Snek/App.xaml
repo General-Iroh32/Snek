@@ -20,6 +20,9 @@
             <DataTemplate DataType="{x:Type viewModel:UeberUnsViewModel}">
                 <view1:UeberUnsView></view1:UeberUnsView>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:PosViewModel}">
+                <view1:PosView></view1:PosView>
+            </DataTemplate>
         </ResourceDictionary>   
     </Application.Resources>
 </Application>

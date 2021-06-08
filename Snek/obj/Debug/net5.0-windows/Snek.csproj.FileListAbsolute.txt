@@ -76,4 +76,142 @@ C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\Ho
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\DocumentFormat.OpenXml.dll
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.g.cs
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.baml
-C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Snek.csprojAssemblyReference.cache
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Snek.exe
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Snek.deps.json
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Snek.runtimeconfig.json
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Snek.runtimeconfig.dev.json
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Snek.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\ref\Snek.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Snek.pdb
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\BouncyCastle.Crypto.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Xceed.Wpf.AvalonDock.Themes.Aero.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Xceed.Wpf.AvalonDock.Themes.Metro.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Xceed.Wpf.AvalonDock.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Xceed.Wpf.Toolkit.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Google.Protobuf.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\K4os.Compression.LZ4.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\K4os.Hash.xxHash.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\LiveCharts.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\LiveCharts.Wpf.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Core.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Material.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\MySql.Data.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Ubiety.Dns.Core.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Zstandard.Net.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\de\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\es\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\fr\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\hu\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\it\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\ja-JP\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\pt-BR\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\ro\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\ru\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\sv\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.csprojAssemblyReference.cache
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\WPF-Ressources\NBT2.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\WPF-Ressources\NewButtonTheme.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\WPF-Ressources\NewMenuTheme.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\WPF-Ressources\TextButtonTheme.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_Graph.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_Graph_Type.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Graph_Creator.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\HomeView.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Register.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Register2.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek_MarkupCompile.cache
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek_MarkupCompile.lref
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\App.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_Graph.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_Graph_Type.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Graph_Creator.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\HomeView.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Register.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Register2.baml
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.g.resources
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.AssemblyInfoInputs.cache
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.AssemblyInfo.cs
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.csproj.CoreCompileInputs.cache
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.csproj.CopyComplete
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\ref\Snek.dll
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.pdb
+C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.genruntimeconfig.cache
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.csprojAssemblyReference.cache
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\WPF-Ressources\NBT2.baml
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\WPF-Ressources\NewButtonTheme.baml
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\WPF-Ressources\NewMenuTheme.baml
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\WPF-Ressources\TextButtonTheme.baml
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_Graph.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Create_Graph_Type.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Graph_Creator.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\HomeView.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\PosView.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\MainWindow.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Register.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Register2.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\App.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek_MarkupCompile.cache
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek_MarkupCompile.lref
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.dll
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\ref\Snek.dll
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.pdb
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\PosView.g.cs
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Bogus.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Humanizer.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Data.Sqlite.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Sqlite.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\SQLitePCLRaw.batteries_v2.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\SQLitePCLRaw.nativelibrary.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\SQLitePCLRaw.core.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\SQLitePCLRaw.provider.dynamic_cdecl.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\alpine-x64\native\libe_sqlite3.so
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\linux-arm\native\libe_sqlite3.so
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\linux-arm64\native\libe_sqlite3.so
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\linux-armel\native\libe_sqlite3.so
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\linux-mips64\native\libe_sqlite3.so
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\linux-musl-x64\native\libe_sqlite3.so
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\linux-x64\native\libe_sqlite3.so
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\linux-x86\native\libe_sqlite3.so
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\osx-x64\native\libe_sqlite3.dylib
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-arm\native\e_sqlite3.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-x64\native\e_sqlite3.dll
+C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\PosView.baml
