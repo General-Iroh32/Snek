@@ -19,6 +19,7 @@ namespace Snek
         private string Telefonnummer = "";
         private string[] Datum;
         MySqlConnection sqlCon = new MySqlConnection("Data Source=139.177.178.173;Database=snek;Uid=root;Pwd=;");
+
         public Register2()
         {
             InitializeComponent();

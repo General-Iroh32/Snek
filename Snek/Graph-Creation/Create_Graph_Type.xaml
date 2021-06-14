@@ -56,7 +56,7 @@
 
                     </ListBoxItem>
                     <ListBoxItem>
-                        <Button   Content="Platzhalter"
+                        <Button   Content="Line Series"
                                 Height="85"
                                 Foreground="White"
                                 FontSize="14"
@@ -64,7 +64,7 @@
                                 />
                     </ListBoxItem>
                     <ListBoxItem>
-                        <Button   Content="Platzhalter"
+                        <Button   Content="Vertical Line Series"
                                 Height="85"
                                 Foreground="White"
                                 FontSize="14"
@@ -72,7 +72,7 @@
                                 ></Button>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <Button   Content="Platzhalter"
+                        <Button   Content="Column Series"
                                 Height="85"
                                 Foreground="White"
                                 FontSize="14"
@@ -80,7 +80,17 @@
                                 ></Button>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <Button   Content="Platzhalter"
+                        <Button   Content="Row Series"
+                                Height="85"
+                                Foreground="White"
+                                FontSize="14"
+                                Style="{StaticResource ButtonVS}" Width="586" Margin="0,10,0,0"
+                                ></Button>
+                    </ListBoxItem>
+                
+                 
+                    <ListBoxItem>
+                        <Button   Content="Pie Chart"
                                 Height="85"
                                 Foreground="White"
                                 FontSize="14"
@@ -88,7 +98,7 @@
                                 ></Button>
                     </ListBoxItem>
                     <ListBoxItem>
-                        <Button   Content="Platzhalter"
+                        <Button   Content="Doughnut"
                                 Height="85"
                                 Foreground="White"
                                 FontSize="14"

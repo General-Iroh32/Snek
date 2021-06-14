@@ -23,6 +23,7 @@
             <DataTemplate DataType="{x:Type viewModel:PosViewModel}">
                 <view1:PosView></view1:PosView>
             </DataTemplate>
+          
         </ResourceDictionary>   
     </Application.Resources>
 </Application>

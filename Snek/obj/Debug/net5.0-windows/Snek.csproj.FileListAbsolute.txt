@@ -215,3 +215,8 @@ C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-arm64\nat
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\PosView.baml
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Graph_Input.g.cs
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Graph_Input.baml
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Snek.csprojAssemblyReference.cache
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Window1.g.cs
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\Window1.baml

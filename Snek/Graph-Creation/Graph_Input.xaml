@@ -1,0 +1,211 @@
+﻿<Window x:Class="Snek.Graph_Creation.Graph_Input"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Snek"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Snek" Height="500" Width="920" Icon="\Images\favicon.ico"
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize"
+        MouseDown="Window_MouseDown">
+    <Border Background="#252526" CornerRadius="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Image Source="/Images/Snek_PNG.png" Width="80"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock Text="Snek Studio"
+                           FontFamily="helvetica"
+                           FontSize="23"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Ellipse Fill="#ec4646" Grid.Column="1" Height="15" Width="15" Margin="698,7,7,53" HorizontalAlignment="Right" VerticalAlignment="Center" MouseLeftButtonDown="closeApp"/>
+            <Ellipse Fill="#ffe268" Grid.Column="1" Height="15" Width="15" Margin="0,7,38,0" HorizontalAlignment="Right" VerticalAlignment="Top" MouseLeftButtonDown="minimizeApp"/>
+
+            <TextBlock
+                           FontFamily="helvetica"
+                           FontSize="36"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Grid.Column="1"
+                       ><Run Language="de-at" Text="Graph Input"/></TextBlock>
+
+            <Canvas Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="20,8,14,10">
+
+                <TextBlock
+                           FontFamily="helvetica"
+                           FontSize="28"
+                           Foreground="White"
+                           Grid.Column="1" Canvas.Left="27" Canvas.Top="26" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+
+
+
+
+                <Button Content="Erstellen" Name="Buttone"  Canvas.Left="586" Canvas.Top="367" Height="40" Width="100" Click="Buttone_Click" />
+                <Button Content="Go back" Name="Buttonb"  Canvas.Left="586" Canvas.Top="313" Height="40" Width="100" Click="Buttonb_Click" />
+                <TextBox Text="0" Name="TB1" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="60" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="172" Canvas.Top="26" Height="34" Width="65"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" Name="TB2" TextWrapping="Wrap" Width="119" Height="30" Canvas.Top="60" Canvas.Left="145" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="328" Canvas.Top="26" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0"  Name="TB3" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="60" Canvas.Left="301" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="328" Canvas.Top="102" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" Name="TB7" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="137" Canvas.Left="301" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="172" Canvas.Top="102" Height="34" Width="65"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" Name="TB6" TextWrapping="Wrap" Width="119" Height="30" Canvas.Top="137" Canvas.Left="145" FontSize="20" />
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="27" Canvas.Top="102" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0"  Name="TB5" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="137" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="27" Canvas.Top="187" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" Name="TB9" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="221"  FontSize="20">
+
+                </TextBox>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="172" Canvas.Top="186" Height="35" Width="65"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" Name="TB10" TextWrapping="Wrap" Width="119" Height="30" Canvas.Top="220" Canvas.Left="145" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="328" Canvas.Top="186" Height="35" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" Name="TB11" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="220" Canvas.Left="301" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="172" Canvas.Top="26" Height="34" Width="65"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="328" Canvas.Top="26" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="328" Canvas.Top="102" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="172" Canvas.Top="102" Height="34" Width="65"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="172" Canvas.Top="186" Height="35" Width="65"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="328" Canvas.Top="186" Height="35" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="484" Canvas.Top="26" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0"  x:Name="TB4" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="60" Canvas.Left="457" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="484" Canvas.Top="102" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" x:Name="TB8" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="137" Canvas.Left="457" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="484" Canvas.Top="186" Height="35" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" x:Name="TB12" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="220" Canvas.Left="457" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="27" Canvas.Top="270" Height="34" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" x:Name="TB13" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="304"  FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="172" Canvas.Top="269" Height="35" Width="65"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" x:Name="TB14" TextWrapping="Wrap" Width="119" Height="30" Canvas.Top="303" Canvas.Left="145" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="328" Canvas.Top="269" Height="35" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" x:Name="TB15" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="303" Canvas.Left="301" FontSize="20"/>
+                <TextBlock
+                    FontFamily="helvetica"
+                    FontSize="28"
+                    Foreground="White"
+                    Canvas.Left="484" Canvas.Top="269" Height="35" Width="64"
+                       ><Run Language="de-at" Text="Input"/></TextBlock>
+                <TextBox Text="0" x:Name="TB16" TextWrapping="Wrap" Width="118" Height="30" Canvas.Top="303" Canvas.Left="457" FontSize="20"/>
+            </Canvas>
+        </Grid>
+
+    </Border>
+</Window>
