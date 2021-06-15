@@ -2501,26 +2501,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dzova\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\flori\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dzova\\Desktop\\Snek\\Snek\\Snek.csproj",
+      "projectUniqueName": "D:\\Schule\\3BHIF-Schule2020-2021\\POS\\Snek Projekt\\Snek\\Snek\\Snek.csproj",
       "projectName": "Snek",
-      "projectPath": "C:\\Users\\Dzova\\Desktop\\Snek\\Snek\\Snek.csproj",
-      "packagesPath": "C:\\Users\\Dzova\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dzova\\Desktop\\Snek\\Snek\\obj\\",
+      "projectPath": "D:\\Schule\\3BHIF-Schule2020-2021\\POS\\Snek Projekt\\Snek\\Snek\\Snek.csproj",
+      "packagesPath": "C:\\Users\\flori\\.nuget\\packages\\",
+      "outputPath": "D:\\Schule\\3BHIF-Schule2020-2021\\POS\\Snek Projekt\\Snek\\Snek\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dzova\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\flori\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2608,7 +2605,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   },

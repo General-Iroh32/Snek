@@ -1,4 +1,5 @@
 ﻿
+<<<<<<< Updated upstream
 FC:\Users\Dzova\Desktop\Snek\Snek\App.xaml;;
 FC:\Users\Dzova\Desktop\Snek\Snek\Graph-Creation\Create_Graph.xaml;;
 FC:\Users\Dzova\Desktop\Snek\Snek\Graph-Creation\Create_Graph_Type.xaml;;
@@ -11,4 +12,16 @@ FC:\Users\Dzova\Desktop\Snek\Snek\Graph-Creation\Window1.xaml;;
 FC:\Users\Dzova\Desktop\Snek\Snek\MainWindow.xaml;;
 FC:\Users\Dzova\Desktop\Snek\Snek\Register.xaml;;
 FC:\Users\Dzova\Desktop\Snek\Snek\Register2.xaml;;
+=======
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\App.xaml;;
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\Graph-Creation\Create_Graph.xaml;;
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\Graph-Creation\Create_Graph_Type.xaml;;
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\Graph-Creation\Graph_Creator.xaml;;
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\Graph-Creation\View\HomeView.xaml;;
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\Graph-Creation\View\PosView.xaml;;
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\Graph-Creation\View\UeberUnsView.xaml;;
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\MainWindow.xaml;;
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\Register.xaml;;
+FD:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\Register2.xaml;;
+>>>>>>> Stashed changes
 

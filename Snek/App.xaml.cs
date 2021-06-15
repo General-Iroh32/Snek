@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Snek.Graph_Creation.Services;
+using Snek.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,12 @@ namespace Snek
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            SeedService db = new SeedService(new PracticalPerformanceCheckContext());
+            db.DeleteDatabase();
+            db.CreateDatabase();
+            db.Seed();
+        }       
     }
 }

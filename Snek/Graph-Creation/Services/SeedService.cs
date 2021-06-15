@@ -23,7 +23,7 @@ namespace Snek.Graph_Creation.Services
             => _dbContext.Database.EnsureCreated();
 
 
-        public void seed()
+        public void Seed()
         {
             List<Mitwirkende> mitwirkende = new List<Mitwirkende>();
             List<Zeiten> zeiten = new List<Zeiten>();
