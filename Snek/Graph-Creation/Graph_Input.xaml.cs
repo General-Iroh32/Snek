@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace Snek.Graph_Creation
@@ -57,38 +58,17 @@ namespace Snek.Graph_Creation
         {
             try
             {
-                if (TB1.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB1.Text))); }
-                if (TB2.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB2.Text))); }
-                if (TB3.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB3.Text))); }
-                if (TB4.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB4.Text))); }
-                if (TB5.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB5.Text))); }
-                if (TB6.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB6.Text))); }
-                if (TB7.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB7.Text))); }
-                if (TB8.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB8.Text))); }
-                if (TB9.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB9.Text))); }
-                if (TB10.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB10.Text))); }
-                if (TB11.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB11.Text))); }
-                if (TB12.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB12.Text))); }
-                if (TB13.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB13.Text))); }
-                if (TB14.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB14.Text))); }
-                if (TB15.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB15.Text))); }
-                if (TB16.Text == "0") { }
-                else { PrincipalValues.Add(double.Parse(ExtractNumbersOnly(TB16.Text))); }
+                var boxes = new TextBox[,]
+{
+     { TB1, TB2, TB3,TB4,TB5, TB6, TB7,TB8,TB9, TB10, TB11,TB12,TB13, TB14, TB15,TB16 } };
+                foreach (TextBox x in boxes)
+                {
+                    if (x.Text != "0")
+                    {
+                        PrincipalValues.Add(double.Parse(ExtractNumbersOnly(x.Text)));
+
+                    }
+                }
                 Graph_Creator graph_Creator = new Graph_Creator(t, PrincipalValues);
                 graph_Creator.Show();
                 this.Close();
