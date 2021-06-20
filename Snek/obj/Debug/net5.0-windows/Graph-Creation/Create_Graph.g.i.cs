@@ -9,8 +9,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using MahApps.Metro.IconPacks;
-using MahApps.Metro.IconPacks.Converter;
 using Snek;
 using Snek.Graph_Creation.ViewModel;
 using System;
