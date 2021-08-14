@@ -9,7 +9,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using LiveCharts.Wpf;
+using MahApps.Metro.IconPacks;
+using MahApps.Metro.IconPacks.Converter;
 using Snek;
 using System;
 using System.Diagnostics;

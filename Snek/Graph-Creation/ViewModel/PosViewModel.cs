@@ -1,7 +1,11 @@
 ﻿using Snek.Graph_Creation.Models;
 using Snek.Graph_Creation.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Snek.Graph_Creation.ViewModel
 {
@@ -17,18 +21,22 @@ namespace Snek.Graph_Creation.ViewModel
         public PosViewModel(ArbeitenService arbeitenService1, MitwirkendeService mitwirkendeService1, ZeitenService zeitenService1)
         {
             arbeitenService = arbeitenService1;
-            //  AllArbeiten = arbeitenService.GetArbeitenByMitwirkende();
+            AllArbeiten = arbeitenService.GetArbeitenByMitwirkende();
 
             mitwirkendeService = mitwirkendeService1;
             AllMitwirkende = mitwirkendeService.GetAllMitwirkende();
 
             zeitenService = zeitenService1;
+<<<<<<< Updated upstream
+            AllZeiten = zeitenService.GetZeitenByArbeiten();
+=======
             //   AllZeiten = zeitenService.GetZeitenByArbeiten();
         }
 
         public PosViewModel()
         {
 
+>>>>>>> Stashed changes
         }
 
         public List<Mitwirkende> AllMitwirkende { get; set; }

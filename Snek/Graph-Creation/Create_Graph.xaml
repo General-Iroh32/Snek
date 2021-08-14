@@ -54,7 +54,13 @@
                                 Style="{StaticResource MenuButtonTheme}" 
                                 Command="{Binding UeberUnsCommand}"
                                 ></RadioButton>
-                
+                <RadioButton    Content="Einstellungen"
+                                Height="50"
+                                Foreground="White"
+                                FontSize="14"
+                                Style="{StaticResource MenuButtonTheme}"
+                                Command="{Binding EinstellungenViewCommand}"
+                                ></RadioButton>
                 <RadioButton    Content="Pos-Kriterien"
                                 Height="50"
                                 Foreground="White"

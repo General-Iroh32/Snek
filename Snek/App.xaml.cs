@@ -1,6 +1,4 @@
-﻿using Snek.Graph_Creation.Services;
-using Snek.Infrastructure;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -15,6 +13,8 @@ namespace Snek
     /// </summary>
     public partial class App : Application
     {
+<<<<<<< Updated upstream
+=======
         public App()
         {
             
@@ -25,5 +25,6 @@ namespace Snek
             //db.CreateDatabase();
             db.Seed();
         }       
+>>>>>>> Stashed changes
     }
 }

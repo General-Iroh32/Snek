@@ -76,6 +76,7 @@ C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\Ho
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\DocumentFormat.OpenXml.dll
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.g.cs
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.baml
+C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Snek.csprojAssemblyReference.cache
 C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Snek.exe
 C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Snek.deps.json
 C:\Users\jonas\Desktop\3BHIF\POS2021\Projekt\Snek\Snek\bin\Debug\net5.0-windows\Snek.runtimeconfig.json
@@ -176,6 +177,8 @@ D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-wind
 D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.dll
 D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\ref\Snek.dll
 D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\Snek.pdb
+<<<<<<< Updated upstream
+=======
 C:\Users\Dzova\Desktop\Snek\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\PosView.g.cs
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Bogus.dll
 C:\Users\Dzova\Desktop\Snek\Snek\bin\Debug\net5.0-windows\Humanizer.dll
@@ -454,6 +457,9 @@ C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Graph-Creation\View
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\PosView.g.cs
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.g.cs
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Graph-Creation\Window1.g.cs
+C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Register.g.cs
+C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Register2.g.cs
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek_MarkupCompile.cache
@@ -466,9 +472,13 @@ C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Graph-Creation\Grap
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\HomeView.baml
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Graph-Creation\View\UeberUnsView.baml
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Graph-Creation\Window1.baml
+C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Register.baml
+C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Register2.baml
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.dll
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\ref\Snek.dll
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.pdb
+C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.csprojAssemblyReference.cache
 C:\Users\Dzova\Desktop\snekord\Snek\bin\Debug\net5.0-windows\Snek.exe
 C:\Users\Dzova\Desktop\snekord\Snek\bin\Debug\net5.0-windows\Snek.deps.json
 C:\Users\Dzova\Desktop\snekord\Snek\bin\Debug\net5.0-windows\Snek.runtimeconfig.json
@@ -557,3 +567,4 @@ C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.AssemblyInfo.c
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.csproj.CoreCompileInputs.cache
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.csproj.CopyComplete
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.genruntimeconfig.cache
+>>>>>>> Stashed changes

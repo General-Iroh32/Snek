@@ -43,6 +43,23 @@ namespace Snek.Graph_Creation
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            this.Close();
+        }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Create_Graph_Type main = new Create_Graph_Type();
+            main.Show();
+            this.Close();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

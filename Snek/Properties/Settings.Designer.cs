@@ -22,5 +22,18 @@ namespace Snek.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Dzova\\Desktop\\Snek\\S" +
+            "nek\\Database\\Register_Database.mdf;Integrated Security=True")]
+        public string connection_String {
+            get {
+                return ((string)(this["connection_String"]));
+            }
+            set {
+                this["connection_String"] = value;
+            }
+        }
     }
 }

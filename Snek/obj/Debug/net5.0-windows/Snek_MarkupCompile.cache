@@ -4,17 +4,30 @@
 winexe
 C#
 .cs
+<<<<<<< Updated upstream
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\obj\Debug\net5.0-windows\
+=======
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\
+>>>>>>> Stashed changes
 Snek
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+<<<<<<< Updated upstream
+D:\Schule\3BHIF-Schule2020-2021\POS\Snek Projekt\Snek\Snek\App.xaml
+13-1978103173
+
+30-1728556082
+233-356663714
+Graph-Creation\Create_Graph.xaml;Graph-Creation\Create_Graph_Type.xaml;Graph-Creation\Graph_Creator.xaml;Graph-Creation\View\HomeView.xaml;Graph-Creation\View\PosView.xaml;Graph-Creation\View\UeberUnsView.xaml;MainWindow.xaml;Register.xaml;Register2.xaml;WPF-Ressources\NBT2.xaml;WPF-Ressources\NewButtonTheme.xaml;WPF-Ressources\NewMenuTheme.xaml;WPF-Ressources\TextButtonTheme.xaml;
+=======
 C:\Users\Dzova\Desktop\snekord\Snek\App.xaml
-12704969891
+1593340692
 
-29737611148
+3224654706
 233425117917
-Graph-Creation\Create_Graph.xaml;Graph-Creation\Create_Graph_Type.xaml;Graph-Creation\Graph_Creator.xaml;Graph-Creation\Graph_Input.xaml;Graph-Creation\View\HomeView.xaml;Graph-Creation\View\PosView.xaml;Graph-Creation\View\UeberUnsView.xaml;Graph-Creation\Window1.xaml;WPF-Ressources\NBT2.xaml;WPF-Ressources\NewButtonTheme.xaml;WPF-Ressources\NewMenuTheme.xaml;WPF-Ressources\TextButtonTheme.xaml;
+Graph-Creation\Create_Graph.xaml;Graph-Creation\Create_Graph_Type.xaml;Graph-Creation\Graph_Creator.xaml;Graph-Creation\Graph_Input.xaml;Graph-Creation\View\HomeView.xaml;Graph-Creation\View\PosView.xaml;Graph-Creation\View\UeberUnsView.xaml;Graph-Creation\Window1.xaml;MainWindow.xaml;Register.xaml;Register2.xaml;WPF-Ressources\NBT2.xaml;WPF-Ressources\NewButtonTheme.xaml;WPF-Ressources\NewMenuTheme.xaml;WPF-Ressources\TextButtonTheme.xaml;
+>>>>>>> Stashed changes
 
-False
+True
 

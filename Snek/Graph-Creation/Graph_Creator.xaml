@@ -13,10 +13,10 @@
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
     <Border Background="#252526" CornerRadius="10">
-        <Grid x:Name="Gride">
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
                 <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="75"/>
@@ -26,32 +26,55 @@
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
                 <Image Source="/Images/Snek_PNG.png" Width="80"/>
             </StackPanel>
-            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <Ellipse Fill="#ec4646" Grid.Column="1" Height="15" Width="15" Margin="0,7,7,53" HorizontalAlignment="Right" VerticalAlignment="Center" MouseLeftButtonDown="closeApp"/>
-            <Ellipse Fill="#ffe268" Grid.Column="1" Height="15" Width="15" Margin="0,7,38,0" HorizontalAlignment="Right" VerticalAlignment="Top" MouseLeftButtonDown="minimizeApp"/>
-
-            <lvc:CartesianChart Grid.Row="1" Grid.Column="0" x:Name="Chart1" LegendLocation="Left" Visibility="Hidden"/>
-            <lvc:PieChart Grid.Row="1" Grid.Column="0" x:Name="Chart2" LegendLocation="Left" Visibility="Hidden"/>
-
-
-
-            <Button Content="Save as .snek" Grid.Column="1" HorizontalAlignment="Center" Margin="0,350,0,0" Grid.Row="1" VerticalAlignment="Top" Height="47" Width="118" Click="Button_Click_2"/>
-            <Button Content="Export as IMG" Grid.Column="1" HorizontalAlignment="Center" Margin="0,287,0,0" Grid.Row="1" VerticalAlignment="Top" Height="47" Width="118" Click="Button_Click_1" />
-            <Button Content="Go Back to input" Grid.Column="1" HorizontalAlignment="Center" Margin="0,222,0,0" Grid.Row="1" VerticalAlignment="Top" Height="47" Width="118" Click="Button_Click"/>
-            <TextBlock Text="Snek Studio"
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock Text="Snek Studio"
                            FontFamily="helvetica"
                            FontSize="23"
                            Foreground="White"
-                           HorizontalAlignment="Left" Margin="85,24,0,24"/>
-            <TextBlock Text="Graph export"
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+            <Ellipse Fill="#ec4646" Grid.Column="1" Height="15" Width="15" Margin="698,7,7,53" HorizontalAlignment="Right" VerticalAlignment="Center" MouseLeftButtonDown="closeApp"/>
+            <Ellipse Fill="#ffe268" Grid.Column="1" Height="15" Width="15" Margin="0,7,38,0" HorizontalAlignment="Right" VerticalAlignment="Top" MouseLeftButtonDown="minimizeApp"/>
+            <TextBlock Text="Graphen bearbeiten"
+                           FontFamily="helvetica"
+                           FontSize="36"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Grid.Column="1"
+                       />
+            <TextBlock Text="Werte eingeben"
+                           FontFamily="helvetica"
+                           FontSize="24"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top" Margin="0,59,0,0" Grid.Row="1" Height="34" Width="180"
+                       />
+            <TextBox Grid.Row="1" Height="40"></TextBox>
+            <TextBox Grid.Row="1" Height="40" Margin="0,-200,0,0"></TextBox>
+            <TextBox Grid.Row="1" Height="40" Margin="0,200,0,0"></TextBox>
+            <TextBlock Text="Werte eingeben"
                 FontFamily="helvetica"
-                FontSize="36"
+                FontSize="24"
                 Foreground="White"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                       x:Name="test"
+                VerticalAlignment="Top" Margin="0,158,0,0" Grid.Row="1" Height="34" Width="180"
                        />
-            <Button Content="Go Back to Main" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Height="47" Width="118"  Margin="0,163,0,0" Click="Button_Click_3"/>
+            <TextBlock Text="Werte eingeben"
+                FontFamily="helvetica"
+                FontSize="24"
+                Foreground="White"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" Margin="0,259,0,0" Grid.Row="1" Height="34" Width="180"
+                       />
+            <lvc:CartesianChart Grid.Row="1" Grid.Column="1" Series="{Binding SeriesCollection}" LegendLocation="Left">
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Salesman" Labels="{Binding Labels}"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Sold Apps" LabelFormatter="{Binding Formatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+            </lvc:CartesianChart>
         </Grid>
 
     </Border>

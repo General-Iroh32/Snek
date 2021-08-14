@@ -46,9 +46,8 @@ namespace Snek.Graph_Creation
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string text = lst.SelectedItem.ToString();
-            string[] f = text.Split(':');
 
-            Graph_Input graph_Creator = new Graph_Input(f[1]);
+            Graph_Creator graph_Creator = new Graph_Creator(text);
             graph_Creator.Show();
             this.Close();
         }
