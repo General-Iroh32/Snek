@@ -38,7 +38,7 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">How to start</a>
+      <a href="#Howtostart">How to start</a>
     </li>
     <li><a href="#PreviewGraph">Preview Graph</a></li>
   </ol>
@@ -66,15 +66,15 @@ This section should list any major frameworks that you built your project using.
 
 
 <!-- GETTING STARTED -->
-## How to start
+## Howtostart
 
  ```sh
   git clone https://github.com/General-Iroh32/Snek.git
   ```
-  <br />
   Either open the sln and build it with VS2019 or 
   <br />
-  head over to \Snek\bin\Debug\net5.0-windows
+  <br />
+  head over to \Snek\bin\Debug\net5.0-windows and start the Snek.exe
 
 ### PreviewGraph
 
