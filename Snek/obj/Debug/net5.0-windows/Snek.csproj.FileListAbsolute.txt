@@ -557,3 +557,4 @@ C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.AssemblyInfo.c
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.csproj.CoreCompileInputs.cache
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.csproj.CopyComplete
 C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.genruntimeconfig.cache
+C:\Users\Dzova\Desktop\snekord\Snek\obj\Debug\net5.0-windows\Snek.csprojAssemblyReference.cache

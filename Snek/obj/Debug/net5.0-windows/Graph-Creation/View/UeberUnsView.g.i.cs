@@ -54,7 +54,7 @@ namespace Snek.Graph_Creation.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Snek;component/graph-creation/view/ueberunsview.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Snek;V1.0.0.0;component/graph-creation/view/ueberunsview.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Graph-Creation\View\UeberUnsView.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

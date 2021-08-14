@@ -61,7 +61,7 @@ namespace Snek.Graph_Creation {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Snek;component/graph-creation/window1.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Snek;V1.0.0.0;component/graph-creation/window1.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Graph-Creation\Window1.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
