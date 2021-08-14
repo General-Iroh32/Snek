@@ -17,9 +17,12 @@ namespace Snek
     {
         public App()
         {
-            SeedService db = new SeedService(new PracticalPerformanceCheckContext());
-            db.DeleteDatabase();
-            db.CreateDatabase();
+            
+            PracticalPerformanceCheckContext practicalPerformanceCheckContext = new PracticalPerformanceCheckContext();
+            practicalPerformanceCheckContext.Database.EnsureDeleted();
+            practicalPerformanceCheckContext.Database.EnsureCreated();
+            SeedService db = new SeedService(practicalPerformanceCheckContext);
+            //db.CreateDatabase();
             db.Seed();
         }       
     }

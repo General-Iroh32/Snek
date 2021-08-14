@@ -196,7 +196,7 @@ namespace Snek.Graph_Creation
                 SaveFileDialog saveDialog = new SaveFileDialog();
                 saveDialog.Title = "Save";
                 saveDialog.Filter = "Image Files (*.png;*.jpg)|*.png;*.jpg";
-                if (saveDialog.ShowDialog() == DialogResult.Value)
+                if (saveDialog.ShowDialog() == true)
                 {
                     string file = saveDialog.FileName;
                     SaveToPng(Chart2, file);
@@ -226,7 +226,7 @@ namespace Snek.Graph_Creation
 
         private static void EncodeVisual(FrameworkElement visual, string fileName, BitmapEncoder encoder)
         {
-            var bitmap = new RenderTargetBitmap((int)visual.ActualWidth, (int)visual.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+            var bitmap = new RenderTargetBitmap((int)visual.ActualWidth, (int)visual.ActualHeight + 100, 96, 96, PixelFormats.Pbgra32);
             bitmap.Render(visual);
             var frame = BitmapFrame.Create(bitmap);
             encoder.Frames.Add(frame);

@@ -21,7 +21,8 @@ namespace Snek.Graph_Creation.Services
 
         public List<Arbeiten> GetArbeitenByMitwirkende(int mitwirkendeId)
         {
-            return _dbContext.Arbeiten.Where(c => c.Id == mitwirkendeId).OrderBy(c => c.Id).ToList();
+            var Test = _dbContext.Arbeiten.Where(c => c.Id == mitwirkendeId).OrderBy(c => c.Id).ToList();
+            return Test;
         }
 
        

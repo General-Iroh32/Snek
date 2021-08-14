@@ -4,12 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:viewModels="clr-namespace:Snek.Graph_Creation.ViewModel"
-             xmlns:local="clr-namespace:Snek.Graph_Creation.View"
+             xmlns:local="clr-namespace:Snek.Graph_Creation.View" xmlns:Converters="clr-namespace:Snek.Graph_Creation.Converters"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
-        <viewModels:Create_Graph_ViewModel/>
+        
+        <viewModels:PosViewModel/>
+        
     </UserControl.DataContext>
+    
+
+
+
+    <UserControl.Resources>
+        <Converters:ZeitenConverter x:Key="converter"></Converters:ZeitenConverter>
+    </UserControl.Resources>
+
+   
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200*"/>
@@ -21,25 +33,46 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="ListeMitwirkende" Grid.Column="0" Grid.Row="0">
-
+        <ListBox x:Name="lstMitwirkende" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding Path=AllMitwirkende}" SelectedItem="{Binding Path=SelectedMitwirkende}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="5" Orientation="Horizontal">
+                            <TextBlock Margin="5,0,0,0" Text="{Binding Path=Vorname}" FontSize="12"></TextBlock>
+                            <TextBlock Margin="5,0,0,0" Text="{Binding Path=Nachname}" FontSize="12"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox x:Name="ListeArbeiten" Grid.Column="1" Grid.Row="0">
-
+        <ListBox x:Name="lstArbeiten" Grid.Column="1" ItemsSource="{Binding Path=ArbeitenByMitwirkende}" SelectedItem="{Binding Path=SelectedArbeiten}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="5" Orientation="Horizontal">
+                            <TextBlock Margin="5,0,0,0" Text="{Binding Path=Art}" FontSize="12"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox x:Name="ListeZeiten" Grid.Column="2" Grid.Row="0">
-
+        <ListBox x:Name="lstZeiten" Grid.Column="2" ItemsSource="{Binding Path=ZeitenByArbeiten}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Margin="5" Orientation="Horizontal">
+                            <TextBlock Margin="5,0,0,0" Text="{Binding Path=Stunden}" FontSize="12"></TextBlock>
+                            <TextBlock Margin="5,0,0,0" Text="{Binding Path=Minuten}" FontSize="12"></TextBlock>
+                            <TextBlock Margin="5,0,0,0" Text="{Binding Path=Sekunden}" FontSize="12"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
-
-        <Button x:Name="Hinzufügen" Grid.Column="0" Grid.Row="1">
-            Hinzufügen
-        </Button>
-
-        <Button x:Name="Löschen" Grid.Column="1" Grid.Row="1">
-            Löschen
-        </Button>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Text="{Binding ElementName=lstZeiten, Path=ItemsSource, Converter={StaticResource converter}}" FontSize="20"
+            Foreground="LightGray"/>
 
     </Grid>
 </UserControl>

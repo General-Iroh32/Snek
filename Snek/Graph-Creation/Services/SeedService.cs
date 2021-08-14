@@ -27,6 +27,7 @@ namespace Snek.Graph_Creation.Services
         {
             List<Mitwirkende> mitwirkende = new List<Mitwirkende>();
             List<Zeiten> zeiten = new List<Zeiten>();
+            List<Arbeiten> arbeiten = new List<Arbeiten>();
 
 
             Mitwirkende dzovani = new Mitwirkende(1, "Dzovani", "Koller");
@@ -35,14 +36,15 @@ namespace Snek.Graph_Creation.Services
             Mitwirkende jonas = new Mitwirkende(4, "Jonas", "Taferner");
             Mitwirkende oliver = new Mitwirkende(5, "Oliver", "Mate");
 
-            _dbContext.Mitwirkende.AddRange(dzovani, florian, karl, jonas, oliver);
-            _dbContext.SaveChanges();
-
             mitwirkende.Add(dzovani);
             mitwirkende.Add(florian);
             mitwirkende.Add(karl);
             mitwirkende.Add(jonas);
             mitwirkende.Add(oliver);
+
+            _dbContext.Mitwirkende.AddRange(dzovani, florian, karl, jonas, oliver);
+            _dbContext.SaveChanges();
+            
 
             Zeiten zeitend = new Zeiten(1, 15, 13, 57);
             Zeiten zeitenf = new Zeiten(2, 13, 26, 13);
@@ -50,21 +52,29 @@ namespace Snek.Graph_Creation.Services
             Zeiten zeitenj = new Zeiten(4, 13, 45, 37);
             Zeiten zeiteno = new Zeiten(5, 15, 50, 14);
 
-            _dbContext.Zeiten.AddRange(zeitend, zeitenf, zeitenk, zeitenj, zeiteno);
-            _dbContext.SaveChanges();
-
-
             zeiten.Add(zeitend);
             zeiten.Add(zeitenf);
             zeiten.Add(zeitenk);
             zeiten.Add(zeitenj);
-            zeiten.Add(zeiteno);          
+            zeiten.Add(zeiteno);
+
+            _dbContext.Zeiten.AddRange(zeitend, zeitenf, zeitenk, zeitenj, zeiteno);
+            _dbContext.SaveChanges();                   
            
 
-            Arbeiten arbeit1 = new Arbeiten(1, "POS bezogen", zeiten, mitwirkende);
-            Arbeiten arbeit2 = new Arbeiten(1, "PRE bezogen", zeiten, mitwirkende);
+            Arbeiten arbeit1 = new Arbeiten(1, "PRE bezogen", zeiten, mitwirkende);
+            Arbeiten arbeit2 = new Arbeiten(2, "POS bezogen", zeiten, mitwirkende);
+            Arbeiten arbeit3 = new Arbeiten(3, "PRE bezogen", zeiten, mitwirkende);
+            Arbeiten arbeit4 = new Arbeiten(4, "POS bezogen", zeiten, mitwirkende);
+            Arbeiten arbeit5 = new Arbeiten(5, "PRE bezogen", zeiten, mitwirkende);
 
-            _dbContext.Arbeiten.AddRange(arbeit1, arbeit2);
+            arbeiten.Add(arbeit1);
+            arbeiten.Add(arbeit2);
+            arbeiten.Add(arbeit3);
+            arbeiten.Add(arbeit4);
+            arbeiten.Add(arbeit5);
+
+            _dbContext.Arbeiten.AddRange(arbeit1, arbeit2, arbeit3, arbeit4, arbeit5);
             _dbContext.SaveChanges();
         }
     }

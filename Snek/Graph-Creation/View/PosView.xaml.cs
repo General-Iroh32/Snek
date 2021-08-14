@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snek.Graph_Creation.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace Snek.Graph_Creation.View
         public PosView()
         {
             InitializeComponent();
+            DataContext = new PosViewModel(
+               new Snek.Graph_Creation.Services.ArbeitenService(new Snek.Infrastructure.PracticalPerformanceCheckContext()),
+               new Snek.Graph_Creation.Services.MitwirkendeService(new Snek.Infrastructure.PracticalPerformanceCheckContext()),
+               new Snek.Graph_Creation.Services.ZeitenService(new Snek.Infrastructure.PracticalPerformanceCheckContext()));
         }
     }
 }

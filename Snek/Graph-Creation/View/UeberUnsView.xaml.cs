@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace Snek.Graph_Creation.View
 {
@@ -13,12 +12,6 @@ namespace Snek.Graph_Creation.View
             InitializeComponent();
 
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow main = new MainWindow();
-            main.Show();
-            Window parentWindow = Window.GetWindow(this);
-            parentWindow.Close();
-        }
+
     }
 }

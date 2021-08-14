@@ -25,12 +25,6 @@
     <Compile Update="Graph-Creation\Window1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Register.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Register2.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Graph-Creation\Create_Graph.xaml">
@@ -52,15 +46,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Graph-Creation\Window1.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="MainWindow.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Register.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Register2.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="WPF-Ressources\NBT2.xaml">

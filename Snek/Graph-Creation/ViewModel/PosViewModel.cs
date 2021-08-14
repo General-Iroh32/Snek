@@ -28,6 +28,7 @@ namespace Snek.Graph_Creation.ViewModel
 
         public PosViewModel()
         {
+
         }
 
         public List<Mitwirkende> AllMitwirkende { get; set; }
@@ -35,5 +36,80 @@ namespace Snek.Graph_Creation.ViewModel
         public List<Arbeiten> AllArbeiten { get; set; }
 
         public List<Zeiten> AllZeiten { get; set; }
+
+
+        
+        private  List<Zeiten> _zeitenByArbeiten;
+        private Mitwirkende _selectedMitwirkende;
+
+        public List<Arbeiten> ArbeitenByMitwirkende
+        {
+            get => _arbeitenBymitwirkende;
+
+            set
+            {
+                _arbeitenBymitwirkende = value;
+                //SelectedMitwirkende = null;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ArbeitenByMitwirkende)));
+            }
+        }
+
+        public Mitwirkende SelectedMitwirkende
+        {
+            get => _selectedMitwirkende;
+
+            set
+            {
+                if (value != null)
+                {
+                    _selectedMitwirkende = value;
+                    ArbeitenByMitwirkende = arbeitenService.GetArbeitenByMitwirkende(_selectedMitwirkende.Id);
+                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedMitwirkende)));
+                }
+                else
+                {
+                    _selectedMitwirkende = null;
+                }
+                
+            }
+
+        }
+        
+        private List<Arbeiten> _arbeitenBymitwirkende;
+        
+       
+        
+        private Arbeiten _selectedArbeiten;
+
+        public List<Zeiten> ZeitenByArbeiten
+        {
+            get => _zeitenByArbeiten;
+
+
+            set
+            {
+                _zeitenByArbeiten = value;
+            }
+        }
+        public Arbeiten SelectedArbeiten
+        {
+            get => _selectedArbeiten;
+            set
+            {
+                _selectedArbeiten = value;
+                if (_selectedArbeiten != null)
+                {
+
+
+                    ZeitenByArbeiten = zeitenService.GetZeitenByArbeiten(_selectedArbeiten.Id);
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ZeitenByArbeiten)));
+                }
+
+            }
+        }
+
+        
+       
     }
+
 }
