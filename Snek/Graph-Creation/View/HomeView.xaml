@@ -22,17 +22,18 @@
                            FontFamily="helvetica"
                            FontSize="17"
                            Foreground="LightGray" Canvas.Left="30" Canvas.Top="57"/>
-        <Button    Content="Vorlagen durchsuchen"
+        <Button    Content="Play Snake"
                                 Height="85"
                                 Foreground="White"
                                 FontSize="14"
-                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="262" Width="250"
+                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="262" Width="250" Click="Button_Click_3"
+
                                 ></Button>
         <Button    Content="Graph öffnen"
                                 Height="85"
                                 Foreground="White"
                                 FontSize="14"
-                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="172" Width="250"
+                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="172" Width="250" Click="Button_Click_2"
                                 />
 
         <Button   Content="Graph erstellen"

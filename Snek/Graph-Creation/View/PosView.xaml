@@ -3,11 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-<<<<<<< Updated upstream
-             xmlns:local="clr-namespace:Snek.Graph_Creation.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-=======
              xmlns:viewModels="clr-namespace:Snek.Graph_Creation.ViewModel"
              xmlns:local="clr-namespace:Snek.Graph_Creation.View" xmlns:Converters="clr-namespace:Snek.Graph_Creation.Converters"
              mc:Ignorable="d" 
@@ -27,7 +22,6 @@
 
    
     
->>>>>>> Stashed changes
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200*"/>

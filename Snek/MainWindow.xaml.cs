@@ -1,7 +1,9 @@
-﻿using Snek.Graph_Creation;
+﻿using MySql.Data.MySqlClient;
+using Snek.Graph_Creation;
 using System;
-using System.Data;
-using System.Data.SqlClient;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,7 +14,7 @@ namespace Snek
     /// </summary>
     public partial class MainWindow : Window
     {
-        SqlConnection sqlCon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Dzova\Desktop\Snek\Snek\Database\Register_Database.mdf;Integrated Security=True;Password=Snek");
+        MySqlConnection sqlCon = new MySqlConnection("Data Source=139.177.178.173;Database=snek;Uid=root;Pwd=;");
         public MainWindow()
         {
             InitializeComponent();
@@ -22,7 +24,6 @@ namespace Snek
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
-
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
@@ -31,19 +32,40 @@ namespace Snek
             register.Show();
             this.Close();
         }
+        public static string EncryptString(string plainInput)
+        {
+            string key = "b14ca5898a4e4133bbce2ea2315a1916";
+            byte[] iv = new byte[16];
+            byte[] array;
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = Encoding.UTF8.GetBytes(key);
+                aes.IV = iv;
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter streamWriter = new StreamWriter((Stream)cryptoStream))
+                        {
+                            streamWriter.Write(plainInput);
+                        }
+                        array = memoryStream.ToArray();
+                    }
+                }
+            }
+            return Convert.ToBase64String(array);
+        }
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-
             try
             {
-                if (sqlCon.State == ConnectionState.Closed)
-                    sqlCon.Open();
-                string query = "SELECT COUNT(1) FROM [User] WHERE User_Name=@User_Name AND Passwort=@Passwort";
-                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
-                sqlCmd.CommandType = CommandType.Text;
+                sqlCon.Open();
+                string query = "SELECT COUNT(1) FROM User WHERE User_Name=@User_Name AND Passwort=@Passwort";
+                MySqlCommand sqlCmd = new MySqlCommand(query, sqlCon);
                 sqlCmd.Parameters.AddWithValue("@User_Name", txtUsername.Text);
-                sqlCmd.Parameters.AddWithValue("@Passwort", txtPassword.Password);
+                sqlCmd.Parameters.AddWithValue("@Passwort", EncryptString(txtPassword.Password));
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
                 if (count == 1)
                 {
@@ -65,7 +87,5 @@ namespace Snek
                 sqlCon.Close();
             }
         }
-
-
     }
 }

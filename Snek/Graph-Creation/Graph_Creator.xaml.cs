@@ -1,8 +1,14 @@
 ﻿using LiveCharts;
+using LiveCharts.Defaults;
 using LiveCharts.Wpf;
+using Microsoft.Win32;
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Snek.Graph_Creation
 {
@@ -12,42 +18,139 @@ namespace Snek.Graph_Creation
     public partial class Graph_Creator : Window
     {
         string type = "";
+        ChartValues<double> PrincipalValues = new ChartValues<double>();
 
-
-        public Graph_Creator(string t)
+        public Graph_Creator(string t, List<double> Principal)
         {
-            type = t;
+            type = t.Trim();
+
+            PrincipalValues.AddRange(Principal);
             InitializeComponent();
-            SeriesCollection = new SeriesCollection
+            switch (type)
             {
-                new ColumnSeries
-                {
-                    Title = "2015",
-                    Values = new ChartValues<double> { 10, 50, 39, 50 }
-                }
-            };
+                case "Line Series":
+                    Chart1.Visibility = Visibility.Visible;
+                    Chart1.Series.Add(new LineSeries
+                    {
+                        Values = PrincipalValues,
+                        Stroke = Brushes.LightGreen,
+                        Fill = new SolidColorBrush
+                        {
+                            Color = System.Windows.Media.Color.FromRgb(50, 205, 50),
+                            Opacity = 0.7
+                        },
+                        Title = ""
+                    });
+                    break;
+                case "Column Series":
+                    Chart1.Visibility = Visibility.Visible;
+                    Chart1.Series.Add(new ColumnSeries
+                    {
+                        Values = PrincipalValues,
+                        Stroke = Brushes.LightGreen,
+                        Fill = new SolidColorBrush
+                        {
+                            Color = System.Windows.Media.Color.FromRgb(50, 205, 50),
+                            Opacity = 0.7
+                        },
+                        Title = ""
+                    });
+                    break;
+                case "Vertical Line Series":
+                    Chart1.Visibility = Visibility.Visible;
+                    Chart1.Series.Add(new VerticalLineSeries
+                    {
+                        Values = PrincipalValues,
+                        Stroke = Brushes.LightGreen,
+                        Fill = new SolidColorBrush
+                        {
+                            Color = System.Windows.Media.Color.FromRgb(50, 205, 50),
+                            Opacity = 0.7
+                        },
+                        Title = ""
+                    });
+                    break;
+                case "Row Series":
+                    Chart1.Visibility = Visibility.Visible;
+                    Chart1.Series.Add(new RowSeries
+                    {
+                        Values = PrincipalValues,
+                        Stroke = Brushes.LightGreen,
+                        Fill = new SolidColorBrush
+                        {
+                            Color = System.Windows.Media.Color.FromRgb(50, 205, 50),
+                            Opacity = 0.7
+                        },
+                        Title = ""
+                    });
+                    break;
 
-            //adding series will update and animate the chart automatically
-            SeriesCollection.Add(new ColumnSeries
-            {
-                Title = "2016",
-                Values = new ChartValues<double> { 11, 56, 42 }
-            });
+                case "Pie Chart":
+                    Chart2.Visibility = Visibility.Visible;
+                    Random ran = new Random();
+                    foreach (double i in Principal)
+                    {
+                        byte b1 = (byte)ran.Next(1, 255);
+                        byte b2 = (byte)ran.Next(1, 255);
+                        byte b3 = (byte)ran.Next(1, 255);
 
-            //also adding values updates and animates the chart automatically
-            SeriesCollection[1].Values.Add(48d);
+                        int xx = (int)i;
 
-            Labels = new[] { "Maria", "Susan", "Charles", "Frida" };
-            Formatter = value => value.ToString("N");
+                        Chart2.Series.Add(new PieSeries
+                        {
+                            Values = new ChartValues<ObservableValue> { new ObservableValue(xx) },
+                            Stroke = Brushes.LightGreen,
+                            Fill = new SolidColorBrush
 
-            DataContext = this;
+
+                            {
+
+                                Color = System.Windows.Media.Color.FromRgb(b1, b2, b3),
+                                Opacity = 0.7
+                            },
+
+                        });
+                    }
+
+                    break;
+                case "Doughnut":
+                    Chart2.Visibility = Visibility.Visible;
+                    Chart2.InnerRadius = 120;
+                    Random ran1 = new Random();
+                    foreach (double i in Principal)
+                    {
+                        byte b1 = (byte)ran1.Next(1, 255);
+                        byte b2 = (byte)ran1.Next(1, 255);
+                        byte b3 = (byte)ran1.Next(1, 255);
+
+                        int xx = (int)i;
+
+                        Chart2.Series.Add(new PieSeries
+                        {
+                            Values = new ChartValues<ObservableValue> { new ObservableValue(xx) },
+                            Stroke = Brushes.LightGreen,
+                            Fill = new SolidColorBrush
+
+
+                            {
+
+                                Color = System.Windows.Media.Color.FromRgb(b1, b2, b3),
+                                Opacity = 0.7
+                            },
+
+                        });
+                    }
+
+                    break;
+                default:
+                    test.Text = type;
+                    break;
+
+            }
+
+
+
         }
-
-        public SeriesCollection SeriesCollection { get; set; }
-        public string[] Labels { get; set; }
-        public Func<double, string> Formatter { get; set; }
-
-
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -77,8 +180,6 @@ namespace Snek.Graph_Creation
                 MessageBox.Show(ex.Message);
             }
         }
-<<<<<<< Updated upstream
-=======
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -167,6 +268,7 @@ namespace Snek.Graph_Creation
             graph_Creator.Show();
             this.Close();
         }
->>>>>>> Stashed changes
     }
 }
+
+

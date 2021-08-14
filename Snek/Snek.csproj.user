@@ -16,7 +16,13 @@
     <Compile Update="Graph-Creation\Graph_Creator.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Graph-Creation\Graph_Input.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Graph-Creation\View\UeberUnsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Graph-Creation\Window1.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Register.xaml.cs">
@@ -36,10 +42,16 @@
     <Page Update="Graph-Creation\Graph_Creator.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Graph-Creation\Graph_Input.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Graph-Creation\View\HomeView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Graph-Creation\View\UeberUnsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Graph-Creation\Window1.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
