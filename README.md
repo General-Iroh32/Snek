@@ -49,7 +49,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Snek Screen Shot][product-screenshot]]
+![Snek Screen Shot][product-screenshot]
 
 Snek is a Tool to create Graphs and to export them as .PNGS
 
@@ -78,7 +78,7 @@ This section should list any major frameworks that you built your project using.
 
 ### PreviewGraph
 
-[![Snek Screen Shot][product-screenshot2]]
+![Snek Screen Shot][product-screenshot2]
 
 using the pngs for presentations 
 
