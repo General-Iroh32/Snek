@@ -80,8 +80,6 @@ This section should list any major frameworks that you built your project using.
 
 ![Snek Screen Shot][product-screenshot2]
 
-using the pngs for presentations 
-
 
 
 
