@@ -53,7 +53,7 @@
 
 Snek is a Tool to create Graphs and to export them as .PNGS
 
-You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
+You may also suggest changes by forking this repo and creating a pull request or opening an issue.
 
 
 ### Built With
