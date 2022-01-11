@@ -51,7 +51,7 @@
 
 ![Snek Screen Shot][product-screenshot]
 
-Snek is a Tool to create Graphs and to export them as .PNGS
+Snek is a Tool to create Graphs and to export them as .PNGS. Its insanely quick.s
 
 You may also suggest changes by forking this repo and creating a pull request or opening an issue.
 
