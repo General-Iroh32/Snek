@@ -1,0 +1,30 @@
+## .NET build output
+**/[Bb]in/
+**/[Oo]bj/
+artifacts/
+TestResults/
+
+## Visual Studio and user-local state
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## Operating-system files
+.DS_Store
+Thumbs.db
+
+## Local application data
+*.db
+*.db-shm
+*.db-wal
+
+## Local environment overrides
+.env
+.env.*
+!.env.example
