@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
         xmlns:local="clr-namespace:Snek"
-        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Snek" Height="500" Width="920" Icon="\Images\favicon.ico"
@@ -30,8 +29,8 @@
             <Ellipse Fill="#ec4646" Grid.Column="1" Height="15" Width="15" Margin="0,7,7,53" HorizontalAlignment="Right" VerticalAlignment="Center" MouseLeftButtonDown="closeApp"/>
             <Ellipse Fill="#ffe268" Grid.Column="1" Height="15" Width="15" Margin="0,7,38,0" HorizontalAlignment="Right" VerticalAlignment="Top" MouseLeftButtonDown="minimizeApp"/>
 
-            <lvc:CartesianChart Grid.Row="1" Grid.Column="0" x:Name="Chart1" LegendLocation="Left" Visibility="Hidden"/>
-            <lvc:PieChart Grid.Row="1" Grid.Column="0" x:Name="Chart2" LegendLocation="Left" Visibility="Hidden"/>
+            <lvc:CartesianChart Grid.Row="1" Grid.Column="0" x:Name="Chart1" Visibility="Hidden"/>
+            <lvc:PieChart Grid.Row="1" Grid.Column="0" x:Name="Chart2" Visibility="Hidden"/>
 
 
 
