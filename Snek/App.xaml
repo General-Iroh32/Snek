@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Snek"
              xmlns:viewModel="clr-namespace:Snek.Graph_Creation.ViewModel"
-             xmlns:view="clr-namespace:Snek.Graph_Creation" xmlns:view1="clr-namespace:Snek.Graph_Creation.View"
-             StartupUri=".\Graph-Creation\Create_Graph.xaml">
+             xmlns:view="clr-namespace:Snek.Graph_Creation" xmlns:view1="clr-namespace:Snek.Graph_Creation.View">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

@@ -7,9 +7,6 @@
              xmlns:viewModels="clr-namespace:Snek.Graph_Creation.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="525" d:DesignWidth="800">
-    <UserControl.DataContext>
-        <viewModels:Create_Graph_ViewModel/>
-    </UserControl.DataContext>
     <Canvas Grid.Row="1"
                             Grid.Column="1"
                             Margin="20,8,0,12">

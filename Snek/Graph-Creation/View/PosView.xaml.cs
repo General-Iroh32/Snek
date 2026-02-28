@@ -1,33 +1,36 @@
-﻿using Snek.Graph_Creation.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using Snek.Core.Models;
+using Snek.Graph_Creation.ViewModel;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace Snek.Graph_Creation.View
+namespace Snek.Graph_Creation.View;
+
+public partial class PosView : UserControl
 {
-    /// <summary>
-    /// Interaction logic for PosView.xaml
-    /// </summary>
-    public partial class PosView : UserControl
+    public PosView()
     {
-        public PosView()
+        InitializeComponent();
+        Loaded += async (_, _) =>
         {
-            InitializeComponent();
-            DataContext = new PosViewModel(
-               new Snek.Graph_Creation.Services.ArbeitenService(new Snek.Infrastructure.PracticalPerformanceCheckContext()),
-               new Snek.Graph_Creation.Services.MitwirkendeService(new Snek.Infrastructure.PracticalPerformanceCheckContext()),
-               new Snek.Graph_Creation.Services.ZeitenService(new Snek.Infrastructure.PracticalPerformanceCheckContext()));
+            if (DataContext is PosViewModel viewModel)
+            {
+                await viewModel.InitializeAsync();
+            }
+        };
+    }
+
+    private async void MitwirkendeSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (DataContext is PosViewModel viewModel && sender is ListBox listBox)
+        {
+            await viewModel.SelectMitwirkendeAsync(listBox.SelectedItem as Mitwirkende);
+        }
+    }
+
+    private async void ArbeitenSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (DataContext is PosViewModel viewModel && sender is ListBox listBox)
+        {
+            await viewModel.SelectArbeitenAsync(listBox.SelectedItem as Arbeiten);
         }
     }
 }

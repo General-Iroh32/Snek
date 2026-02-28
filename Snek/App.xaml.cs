@@ -1,29 +1,76 @@
-﻿using Snek.Graph_Creation.Services;
-using Snek.Infrastructure;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Snek.Core.Graphs;
+using Snek.Core.Repositories;
+using Snek.Graph_Creation;
+using Snek.Graph_Creation.ViewModel;
+using Snek.Infrastructure.Persistence;
+using System.IO;
 using System.Windows;
 
-namespace Snek
+namespace Snek;
+
+public partial class App : Application
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
+    private readonly IHost _host;
+
+    public App()
     {
-        public App()
+        var builder = Host.CreateApplicationBuilder();
+        var applicationDirectory = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "Snek");
+        var connectionString = $"Data Source={Path.Combine(applicationDirectory, "snek.db")}";
+
+        builder.Services.AddPooledDbContextFactory<SnekDbContext>(options => options.UseSqlite(connectionString));
+        builder.Services.AddSingleton<IPosRepository, SqlitePosRepository>();
+        builder.Services.AddSingleton<DatabaseInitializer>();
+        builder.Services.AddSingleton<GraphDocumentSerializer>();
+        builder.Services.AddSingleton<GraphValueParser>();
+
+        builder.Services.AddTransient<HomeViewModel>();
+        builder.Services.AddTransient<UeberUnsViewModel>();
+        builder.Services.AddTransient<PosViewModel>();
+        builder.Services.AddTransient<Create_Graph_ViewModel>();
+        builder.Services.AddTransient<Create_Graph>();
+
+        _host = builder.Build();
+    }
+
+    public static T GetRequiredService<T>() where T : notnull =>
+        ((App)Current)._host.Services.GetRequiredService<T>();
+
+    protected override async void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        try
         {
-            
-            PracticalPerformanceCheckContext practicalPerformanceCheckContext = new PracticalPerformanceCheckContext();
-            practicalPerformanceCheckContext.Database.EnsureDeleted();
-            practicalPerformanceCheckContext.Database.EnsureCreated();
-            SeedService db = new SeedService(practicalPerformanceCheckContext);
-            //db.CreateDatabase();
-            db.Seed();
-        }       
+            var applicationDirectory = Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                "Snek");
+            Directory.CreateDirectory(applicationDirectory);
+
+            await _host.StartAsync();
+            await _host.Services.GetRequiredService<DatabaseInitializer>().InitializeAsync();
+            _host.Services.GetRequiredService<Create_Graph>().Show();
+        }
+        catch (Exception exception)
+        {
+            MessageBox.Show(
+                $"Snek konnte nicht gestartet werden.{Environment.NewLine}{exception.Message}",
+                "Startfehler",
+                MessageBoxButton.OK,
+                MessageBoxImage.Error);
+            Shutdown(1);
+        }
+    }
+
+    protected override void OnExit(ExitEventArgs e)
+    {
+        _host.StopAsync().GetAwaiter().GetResult();
+        _host.Dispose();
+        base.OnExit(e);
     }
 }
