@@ -3,25 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:viewModels="clr-namespace:Snek.Graph_Creation.ViewModel"
-             xmlns:local="clr-namespace:Snek.Graph_Creation.View" xmlns:Converters="clr-namespace:Snek.Graph_Creation.Converters"
+             xmlns:local="clr-namespace:Snek.Graph_Creation.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.DataContext>
-        
-        <viewModels:PosViewModel/>
-        
-    </UserControl.DataContext>
-    
-
-
-
-    <UserControl.Resources>
-        <Converters:ZeitenConverter x:Key="converter"></Converters:ZeitenConverter>
-    </UserControl.Resources>
-
-   
-    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="200*"/>
@@ -33,7 +17,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox x:Name="lstMitwirkende" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding Path=AllMitwirkende}" SelectedItem="{Binding Path=SelectedMitwirkende}">
+        <ListBox x:Name="lstMitwirkende" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding AllMitwirkende}" SelectionChanged="MitwirkendeSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -46,7 +30,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox x:Name="lstArbeiten" Grid.Column="1" ItemsSource="{Binding Path=ArbeitenByMitwirkende}" SelectedItem="{Binding Path=SelectedArbeiten}">
+        <ListBox x:Name="lstArbeiten" Grid.Column="1" ItemsSource="{Binding ArbeitenByMitwirkende}" SelectionChanged="ArbeitenSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -58,7 +42,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <ListBox x:Name="lstZeiten" Grid.Column="2" ItemsSource="{Binding Path=ZeitenByArbeiten}">
+        <ListBox x:Name="lstZeiten" Grid.Column="2" ItemsSource="{Binding ZeitenByArbeiten}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -71,8 +55,11 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Text="{Binding ElementName=lstZeiten, Path=ItemsSource, Converter={StaticResource converter}}" FontSize="20"
+        <TextBlock Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Text="{Binding Gesamtzeit}" FontSize="20"
             Foreground="LightGray"/>
+
+        <TextBlock Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"
+                   Text="{Binding ErrorMessage}" Foreground="#ec4646" Margin="8,0"/>
 
     </Grid>
 </UserControl>

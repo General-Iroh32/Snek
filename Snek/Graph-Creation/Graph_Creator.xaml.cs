@@ -3,6 +3,7 @@ using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using Microsoft.Win32;
 using SkiaSharp;
+using Snek.Core.Graphs;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
@@ -14,13 +15,13 @@ namespace Snek.Graph_Creation;
 public partial class Graph_Creator : Window
 {
     private static readonly SKColor AccentColor = new(50, 205, 50);
-    private readonly IReadOnlyList<double> _principalValues;
-    private readonly string _type;
+    private readonly GraphDocument _document;
+    private readonly GraphDocumentSerializer _serializer;
 
-    public Graph_Creator(string type, IEnumerable<double> principalValues)
+    public Graph_Creator(GraphDocument document)
     {
-        _type = type.Trim();
-        _principalValues = principalValues.ToArray();
+        _document = document;
+        _serializer = App.GetRequiredService<GraphDocumentSerializer>();
 
         InitializeComponent();
         ConfigureChart();
@@ -31,47 +32,46 @@ public partial class Graph_Creator : Window
         var stroke = new SolidColorPaint(AccentColor, 3);
         var fill = new SolidColorPaint(AccentColor.WithAlpha(178));
 
-        switch (_type)
+        switch (_document.Type)
         {
-            case "Line Series":
-            case "Vertical Line Series":
+            case GraphType.Line:
+            case GraphType.VerticalLine:
                 Chart1.Visibility = Visibility.Visible;
                 Chart1.Series = [new LineSeries<double>
                 {
-                    Values = _principalValues,
+                    Values = _document.Values,
                     Stroke = stroke,
                     Fill = fill,
                     Name = string.Empty
                 }];
                 break;
-            case "Column Series":
+            case GraphType.Column:
                 Chart1.Visibility = Visibility.Visible;
                 Chart1.Series = [new ColumnSeries<double>
                 {
-                    Values = _principalValues,
+                    Values = _document.Values,
                     Stroke = stroke,
                     Fill = fill,
                     Name = string.Empty
                 }];
                 break;
-            case "Row Series":
+            case GraphType.Row:
                 Chart1.Visibility = Visibility.Visible;
                 Chart1.Series = [new RowSeries<double>
                 {
-                    Values = _principalValues,
+                    Values = _document.Values,
                     Stroke = stroke,
                     Fill = fill,
                     Name = string.Empty
                 }];
                 break;
-            case "Pie Chart":
-            case "Doughnut":
+            case GraphType.Pie:
+            case GraphType.Doughnut:
                 Chart2.Visibility = Visibility.Visible;
-                Chart2.Series = CreatePieSeries(_principalValues, _type == "Doughnut");
+                Chart2.Series = CreatePieSeries(_document.Values, _document.Type == GraphType.Doughnut);
                 break;
             default:
-                test.Text = $"Unbekannter Graphentyp: {_type}";
-                break;
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -110,7 +110,7 @@ public partial class Graph_Creator : Window
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        new Graph_Input(_type).Show();
+        new Graph_Input(_document.Type).Show();
         Close();
     }
 
@@ -126,7 +126,7 @@ public partial class Graph_Creator : Window
 
         if (saveDialog.ShowDialog() == true)
         {
-            SaveToPng(_type is "Pie Chart" or "Doughnut" ? Chart2 : Chart1, saveDialog.FileName);
+            SaveToPng(_document.Type is GraphType.Pie or GraphType.Doughnut ? Chart2 : Chart1, saveDialog.FileName);
         }
     }
 
@@ -160,17 +160,12 @@ public partial class Graph_Creator : Window
             return;
         }
 
-        using var writer = File.CreateText(saveDialog.FileName);
-        writer.WriteLine(_type);
-        foreach (var value in _principalValues)
-        {
-            writer.WriteLine(value);
-        }
+        File.WriteAllText(saveDialog.FileName, _serializer.Serialize(_document));
     }
 
     private void Button_Click_3(object sender, RoutedEventArgs e)
     {
-        new Create_Graph().Show();
+        App.GetRequiredService<Create_Graph>().Show();
         Close();
     }
 }

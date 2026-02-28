@@ -139,7 +139,7 @@ namespace Snek.Graph_Creation
         }
 
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void timer_Tick(object? sender, EventArgs e)
         {
             // Expand the body of the snake to the direction of movement
 

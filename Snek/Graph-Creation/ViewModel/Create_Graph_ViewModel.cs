@@ -1,38 +1,42 @@
-﻿using Snek.Graph_Creation.Core;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
-namespace Snek.Graph_Creation.ViewModel
+namespace Snek.Graph_Creation.ViewModel;
+
+public sealed class Create_Graph_ViewModel : ObservableObject
 {
-    class Create_Graph_ViewModel : ObservableObject
+    private object _currentView;
+
+    public Create_Graph_ViewModel(
+        HomeViewModel homeViewModel,
+        UeberUnsViewModel ueberUnsViewModel,
+        PosViewModel posViewModel)
     {
-        public RelayCommand HomeViewCommand { get; set; }
+        HomeViewModel = homeViewModel;
+        UeberUnsViewModel = ueberUnsViewModel;
+        PosViewModel = posViewModel;
+        _currentView = HomeViewModel;
 
-        public RelayCommand UeberUnsCommand { get; set; }
-        public RelayCommand PosCommand { get; set; }
-
-        public object _currentView;
-
-
-        public HomeViewModel HomeViewModel { get; set; }
-        public UeberUnsViewModel UeberUnsViewModel { get; set; }
-        public PosViewModel PosViewModel { get; set; }
-        public object CurrentView { get { return _currentView; } set { _currentView = value; OnPropertyChanged(); } }
-
-        public Create_Graph_ViewModel()
-        {
-
-            HomeViewModel = new HomeViewModel();
-            UeberUnsViewModel = new UeberUnsViewModel();
-            PosViewModel = new PosViewModel();
-
-            HomeViewCommand = new RelayCommand(a => { CurrentView = HomeViewModel; });
-
-            UeberUnsCommand = new RelayCommand(a => { CurrentView = UeberUnsViewModel; });
-            PosCommand = new RelayCommand(a => { CurrentView = PosViewModel; });
-            /* PosCommand = new RelayCommand(a => { CurrentView = PosCommand; });
-            *neue View in view ordner 
-             *in app.xaml adden 
-             */
-            CurrentView = HomeViewModel;
-        }
+        HomeViewCommand = new RelayCommand(() => CurrentView = HomeViewModel);
+        UeberUnsCommand = new RelayCommand(() => CurrentView = UeberUnsViewModel);
+        PosCommand = new RelayCommand(() => CurrentView = PosViewModel);
     }
+
+    public HomeViewModel HomeViewModel { get; }
+
+    public UeberUnsViewModel UeberUnsViewModel { get; }
+
+    public PosViewModel PosViewModel { get; }
+
+    public object CurrentView
+    {
+        get => _currentView;
+        private set => SetProperty(ref _currentView, value);
+    }
+
+    public IRelayCommand HomeViewCommand { get; }
+
+    public IRelayCommand UeberUnsCommand { get; }
+
+    public IRelayCommand PosCommand { get; }
 }

@@ -1,90 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
+using Snek.Core.Graphs;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace Snek.Graph_Creation
+namespace Snek.Graph_Creation;
+
+public partial class Graph_Input : Window
 {
-    /// <summary>
-    /// Interaction logic for Graph_Input.xaml
-    /// </summary>
-    public partial class Graph_Input : Window
+    private readonly GraphType _type;
+    private readonly GraphValueParser _valueParser;
+
+    public Graph_Input(GraphType type)
     {
-        string t = "";
-        List<double> PrincipalValues = new List<double>();
-        public Graph_Input(string text)
-        {
-            t = text;
-            InitializeComponent();
+        _type = type;
+        _valueParser = App.GetRequiredService<GraphValueParser>();
+        InitializeComponent();
+    }
 
-        }
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+    private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.LeftButton == MouseButtonState.Pressed)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
+            DragMove();
+        }
+    }
 
-        }
-        private void closeApp(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void minimizeApp(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                this.WindowState = WindowState.Minimized;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        public static string ExtractNumbersOnly(string s)
-        {
-            Match match = Regex.Match(s, "^[0-9]+$");
+    private void closeApp(object sender, MouseButtonEventArgs e) => Close();
 
-            return match.Value;
-        }
-        private void Buttone_Click(object sender, RoutedEventArgs e)
+    private void minimizeApp(object sender, MouseButtonEventArgs e) => WindowState = WindowState.Minimized;
+
+    private void Buttone_Click(object sender, RoutedEventArgs e)
+    {
+        try
         {
-            try
+            var inputs = new[]
             {
-                var boxes = new TextBox[,]
-{
-     { TB1, TB2, TB3,TB4,TB5, TB6, TB7,TB8,TB9, TB10, TB11,TB12,TB13, TB14, TB15,TB16 } };
-                foreach (TextBox x in boxes)
-                {
-                    if (x.Text != "0")
-                    {
-                        PrincipalValues.Add(double.Parse(ExtractNumbersOnly(x.Text)));
-
-                    }
-                }
-                Graph_Creator graph_Creator = new Graph_Creator(t, PrincipalValues);
-                graph_Creator.Show();
-                this.Close();
-            }
-            catch (Exception exe)
-            {
-                MessageBox.Show("Werte falsch");
-            }
-
+                TB1.Text, TB2.Text, TB3.Text, TB4.Text,
+                TB5.Text, TB6.Text, TB7.Text, TB8.Text,
+                TB9.Text, TB10.Text, TB11.Text, TB12.Text,
+                TB13.Text, TB14.Text, TB15.Text, TB16.Text
+            };
+            var document = new GraphDocument(_type, _valueParser.Parse(inputs));
+            new Graph_Creator(document).Show();
+            Close();
         }
-
-        private void Buttonb_Click(object sender, RoutedEventArgs e)
+        catch (FormatException exception)
         {
-            Create_Graph_Type graph_Creator = new Create_Graph_Type();
-            graph_Creator.Show();
-            this.Close();
+            MessageBox.Show(exception.Message, "Ungültige Werte", MessageBoxButton.OK, MessageBoxImage.Warning);
         }
+    }
+
+    private void Buttonb_Click(object sender, RoutedEventArgs e)
+    {
+        new Create_Graph_Type().Show();
+        Close();
     }
 }

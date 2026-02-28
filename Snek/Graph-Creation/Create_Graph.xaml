@@ -11,9 +11,6 @@
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         MouseDown="Window_MouseDown">
-    <Window.DataContext>
-        <viewModels:Create_Graph_ViewModel/>
-    </Window.DataContext>
     <Border Background="#252526" CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
