@@ -1,0 +1,76 @@
+name: Windows CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: windows-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test-publish:
+    name: Build, test and package
+    runs-on: windows-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+          cache: true
+          cache-dependency-path: |
+            Directory.Packages.props
+            **/*.csproj
+
+      - name: Restore
+        run: |
+          dotnet restore Snek.sln --locked-mode false
+          dotnet restore Snek/Snek.csproj --runtime win-x64
+
+      - name: Audit dependencies
+        run: dotnet list Snek.sln package --vulnerable --include-transitive
+
+      - name: Build solution
+        run: dotnet build Snek.sln --configuration Release --no-restore --nologo
+
+      - name: Run xUnit tests
+        run: dotnet run --project Snek.Tests/Snek.Tests.csproj --configuration Release --no-build -- -noLogo
+
+      - name: Check EF Core migration drift
+        shell: pwsh
+        run: |
+          dotnet tool install --global dotnet-ef --version 10.0.11
+          dotnet ef migrations has-pending-model-changes `
+            --project Snek.Infrastructure/Snek.Infrastructure.csproj `
+            --configuration Release `
+            --no-build
+
+      - name: Publish Windows application
+        run: >-
+          dotnet publish Snek/Snek.csproj
+          --configuration Release
+          --runtime win-x64
+          --self-contained false
+          --no-restore
+          --output artifacts/Snek-win-x64
+          --nologo
+
+      - name: Upload release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Snek-win-x64-${{ github.sha }}
+          path: artifacts/Snek-win-x64/**
+          if-no-files-found: error
+          retention-days: 14
