@@ -42,6 +42,9 @@ jobs:
       - name: Audit dependencies
         run: dotnet list Snek.sln package --vulnerable --include-transitive
 
+      - name: Verify formatting
+        run: dotnet format Snek.sln --verify-no-changes --no-restore --verbosity minimal
+
       - name: Build solution
         run: dotnet build Snek.sln --configuration Release --no-restore --nologo
 
