@@ -1,49 +1,81 @@
-﻿<UserControl x:Class="Snek.Graph_Creation.HomeView"
+<UserControl x:Class="Snek.Graph_Creation.HomeView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Snek.Graph_Creation"
-             xmlns:viewModels="clr-namespace:Snek.Graph_Creation.ViewModel"
-             mc:Ignorable="d" 
-             d:DesignHeight="525" d:DesignWidth="800">
-    <Canvas Grid.Row="1"
-                            Grid.Column="1"
-                            Margin="20,8,0,12">
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignHeight="620" d:DesignWidth="880">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="36,30">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <TextBlock Text="Jetzt Anfangen!"
-                           FontFamily="helvetica"
-                           FontSize="17"
-                           Foreground="LightGray" Canvas.Left="384" Canvas.Top="57"/>
-        <TextBlock Text="Letzte Projekte"
-                           FontFamily="helvetica"
-                           FontSize="17"
-                           Foreground="LightGray" Canvas.Left="30" Canvas.Top="57"/>
-        <Button    Content="Play Snake"
-                                Height="85"
-                                Foreground="White"
-                                FontSize="14"
-                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="262" Width="250" Click="Button_Click_3"
+            <StackPanel>
+                <TextBlock Text="Willkommen in Snek Studio" Style="{StaticResource VsPageTitle}"/>
+                <TextBlock Margin="0,7,0,0" Style="{StaticResource VsMutedText}"
+                           Text="Graphen erstellen, Projekte öffnen und POS-Zeiten auswerten – in einem kompakten Desktop-Workspace."/>
+            </StackPanel>
 
-                                ></Button>
-        <Button    Content="Graph öffnen"
-                                Height="85"
-                                Foreground="White"
-                                FontSize="14"
-                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="172" Width="250" Click="Button_Click_2"
-                                />
+            <Grid Grid.Row="1" Margin="0,28,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="0,0,8,0" Height="128" Padding="18"
+                        HorizontalContentAlignment="Left" VerticalContentAlignment="Top"
+                        Style="{StaticResource VsPrimaryButton}" Click="CreateGraphButton_Click">
+                    <StackPanel>
+                        <TextBlock Text="＋  Neuer Graph" FontSize="17" FontWeight="SemiBold"/>
+                        <TextBlock Margin="0,10,0,0" Foreground="White" Opacity="0.9"
+                                   Text="Visualisierung auswählen und beliebig viele Werte eingeben."/>
+                        <TextBlock Margin="0,10,0,0" Foreground="White" FontSize="11" Text="Ctrl+N"/>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Column="1" Margin="8,0" Height="128" Padding="18"
+                        HorizontalContentAlignment="Left" VerticalContentAlignment="Top"
+                        Click="OpenGraphButton_Click">
+                    <StackPanel>
+                        <TextBlock Text="↗  Graph öffnen" FontSize="17" FontWeight="SemiBold"/>
+                        <TextBlock Margin="0,10,0,0" Style="{StaticResource VsMutedText}"
+                                   Text="Eine gespeicherte .snek-Datei weiterbearbeiten oder exportieren."/>
+                        <TextBlock Margin="0,10,0,0" Style="{StaticResource VsMutedText}" FontSize="11" Text="Ctrl+O"/>
+                    </StackPanel>
+                </Button>
+                <Button Grid.Column="2" Margin="8,0,0,0" Height="128" Padding="18"
+                        HorizontalContentAlignment="Left" VerticalContentAlignment="Top"
+                        Click="SnakeButton_Click">
+                    <StackPanel>
+                        <TextBlock Text="▶  Snake starten" FontSize="17" FontWeight="SemiBold"/>
+                        <TextBlock Margin="0,10,0,0" Style="{StaticResource VsMutedText}"
+                                   Text="Kurze Pause? Spiele die modernisierte Snek-Version."/>
+                        <TextBlock Margin="0,10,0,0" Style="{StaticResource VsMutedText}" FontSize="11" Text="Pfeiltasten / WASD"/>
+                    </StackPanel>
+                </Button>
+            </Grid>
 
-        <Button   Content="Graph erstellen"
-                                Height="85"
-                                Foreground="White"
-                                FontSize="14"
-                                Style="{StaticResource ButtonVS}" Canvas.Left="384" Canvas.Top="82" Width="250" Click="Button_Click_1"
-                                ></Button>
-        
-        <StackPanel Height="414" Width="284" Canvas.Left="30" Canvas.Top="90">
-            <TextBlock>
-
-            </TextBlock>
-        </StackPanel>
-    </Canvas>
+            <Grid Grid.Row="2" Margin="0,28,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Border Style="{StaticResource VsCard}" Margin="0,0,8,0">
+                    <StackPanel>
+                        <TextBlock Text="Workspace" Style="{StaticResource VsSectionTitle}"/>
+                        <TextBlock Margin="0,12,0,0" Style="{StaticResource VsMutedText}"
+                                   Text="• Sechs Diagrammtypen mit LiveCharts2&#x0a;• Portable .snek-Dateien im JSON-Format&#x0a;• PNG-Export für Dokumentation und Präsentationen&#x0a;• Lokale SQLite-Auswertung ohne Cloud-Abhängigkeit"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" Style="{StaticResource VsCard}" Margin="8,0,0,0">
+                    <StackPanel>
+                        <TextBlock Text="Modernisiert" Style="{StaticResource VsSectionTitle}"/>
+                        <TextBlock Margin="0,12,0,0" Style="{StaticResource VsMutedText}"
+                                   Text=".NET 10 LTS&#x0a;WPF + MVVM Toolkit&#x0a;Dependency Injection&#x0a;SQLite-Migrationen&#x0a;Windows CI"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </UserControl>
