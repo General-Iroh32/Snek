@@ -8,10 +8,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/WPF-Ressources/VisualStudioTheme.xaml"/>
-                <ResourceDictionary Source="/WPF-Ressources/NewButtonTheme.xaml"/>
-                <ResourceDictionary Source="/WPF-Ressources/NewMenuTheme.xaml"/>
-                <ResourceDictionary Source="/WPF-Ressources/TextButtonTheme.xaml"/>
-                <ResourceDictionary Source="/WPF-Ressources/NBT2.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView></view:HomeView>

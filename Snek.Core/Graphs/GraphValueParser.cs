@@ -4,6 +4,9 @@ namespace Snek.Core.Graphs;
 
 public sealed class GraphValueParser
 {
+    public IReadOnlyList<double> ParseText(string? input) =>
+        Parse((input ?? string.Empty).Split(['\r', '\n', ';'], StringSplitOptions.TrimEntries));
+
     public IReadOnlyList<double> Parse(IEnumerable<string?> inputs)
     {
         ArgumentNullException.ThrowIfNull(inputs);

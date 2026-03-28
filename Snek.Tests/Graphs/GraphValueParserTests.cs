@@ -24,4 +24,12 @@ public sealed class GraphValueParserTests
     [Fact]
     public void Parse_RequiresAtLeastOneValue() =>
         Assert.Throws<FormatException>(() => _parser.Parse([null, " "]));
+
+    [Fact]
+    public void ParseText_AcceptsLinesSemicolonsAndDecimalCommas()
+    {
+        var values = _parser.ParseText("1,5\n2.25; -3");
+
+        Assert.Equal([1.5, 2.25, -3], values);
+    }
 }

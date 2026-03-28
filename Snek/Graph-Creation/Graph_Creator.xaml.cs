@@ -4,6 +4,7 @@ using LiveChartsCore.SkiaSharpView.Painting;
 using Microsoft.Win32;
 using SkiaSharp;
 using Snek.Core.Graphs;
+using Snek.Presentation;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
@@ -12,9 +13,9 @@ using System.Windows.Media.Imaging;
 
 namespace Snek.Graph_Creation;
 
-public partial class Graph_Creator : Window
+public partial class Graph_Creator : VsWindow
 {
-    private static readonly SKColor AccentColor = new(50, 205, 50);
+    private static readonly SKColor AccentColor = new(0, 122, 204);
     private readonly GraphDocument _document;
     private readonly GraphDocumentSerializer _serializer;
 
@@ -24,13 +25,15 @@ public partial class Graph_Creator : Window
         _serializer = App.GetRequiredService<GraphDocumentSerializer>();
 
         InitializeComponent();
+        GraphTitleText.Text = document.Type.ToDisplayName();
+        GraphSummaryText.Text = document.Values.Count == 1 ? "1 Datenpunkt" : $"{document.Values.Count} Datenpunkte";
         ConfigureChart();
     }
 
     private void ConfigureChart()
     {
         var stroke = new SolidColorPaint(AccentColor, 3);
-        var fill = new SolidColorPaint(AccentColor.WithAlpha(178));
+        var fill = new SolidColorPaint(AccentColor.WithAlpha(105));
 
         switch (_document.Type)
         {
@@ -42,7 +45,9 @@ public partial class Graph_Creator : Window
                     Values = _document.Values,
                     Stroke = stroke,
                     Fill = fill,
-                    Name = string.Empty
+                    GeometryFill = new SolidColorPaint(AccentColor),
+                    GeometryStroke = new SolidColorPaint(SKColors.White, 1),
+                    Name = "Werte"
                 }];
                 break;
             case GraphType.Column:
@@ -52,7 +57,7 @@ public partial class Graph_Creator : Window
                     Values = _document.Values,
                     Stroke = stroke,
                     Fill = fill,
-                    Name = string.Empty
+                    Name = "Werte"
                 }];
                 break;
             case GraphType.Row:
@@ -62,7 +67,7 @@ public partial class Graph_Creator : Window
                     Values = _document.Values,
                     Stroke = stroke,
                     Fill = fill,
-                    Name = string.Empty
+                    Name = "Werte"
                 }];
                 break;
             case GraphType.Pie:
@@ -79,54 +84,64 @@ public partial class Graph_Creator : Window
     {
         var palette = new[]
         {
-            new SKColor(50, 205, 50),
-            new SKColor(45, 156, 219),
-            new SKColor(255, 193, 7),
-            new SKColor(236, 70, 70),
-            new SKColor(156, 89, 182)
+            new SKColor(0, 122, 204),
+            new SKColor(78, 201, 176),
+            new SKColor(220, 220, 170),
+            new SKColor(197, 134, 192),
+            new SKColor(206, 145, 120),
+            new SKColor(86, 156, 214)
         };
 
         return values.Select((value, index) => (ISeries)new PieSeries<double>
         {
             Values = [value],
-            Fill = new SolidColorPaint(palette[index % palette.Length].WithAlpha(210)),
-            Stroke = new SolidColorPaint(AccentColor, 2),
+            Fill = new SolidColorPaint(palette[index % palette.Length].WithAlpha(220)),
+            Stroke = new SolidColorPaint(new SKColor(30, 30, 30), 2),
             InnerRadius = isDoughnut ? 120 : 0,
             Name = $"Wert {index + 1}"
         }).ToArray();
     }
 
-    private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+    private void EditButton_Click(object sender, RoutedEventArgs e)
     {
-        if (e.LeftButton == MouseButtonState.Pressed)
-        {
-            DragMove();
-        }
-    }
-
-    private void closeApp(object sender, MouseButtonEventArgs e) => Close();
-
-    private void minimizeApp(object sender, MouseButtonEventArgs e) => WindowState = WindowState.Minimized;
-
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-        new Graph_Input(_document.Type).Show();
+        var input = new Graph_Input(_document.Type, _document.Values);
+        input.Show();
         Close();
     }
 
-    private void TakeTheChart()
+    private void NewButton_Click(object sender, RoutedEventArgs e) => GraphNavigation.CreateGraph(this);
+
+    private void HomeButton_Click(object sender, RoutedEventArgs e) => GraphNavigation.ShowMain(this);
+
+    private void ExportButton_Click(object sender, RoutedEventArgs e) => ExportChart();
+
+    private void SaveButton_Click(object sender, RoutedEventArgs e) => SaveDocument();
+
+    private void ExportChart()
     {
         var saveDialog = new SaveFileDialog
         {
-            Title = "Bild exportieren",
+            Title = "Graph als Bild exportieren",
             Filter = "PNG-Bild (*.png)|*.png",
+            FileName = "snek-graph.png",
             DefaultExt = ".png",
             AddExtension = true
         };
 
-        if (saveDialog.ShowDialog() == true)
+        if (saveDialog.ShowDialog() != true)
         {
-            SaveToPng(_document.Type is GraphType.Pie or GraphType.Doughnut ? Chart2 : Chart1, saveDialog.FileName);
+            return;
+        }
+
+        try
+        {
+            FrameworkElement chart = _document.Type is GraphType.Pie or GraphType.Doughnut ? Chart2 : Chart1;
+            SaveToPng(chart, saveDialog.FileName);
+            StatusText.Text = $"PNG exportiert: {Path.GetFileName(saveDialog.FileName)}";
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+        {
+            ShowFileError(exception, "Bild konnte nicht exportiert werden");
         }
     }
 
@@ -143,14 +158,13 @@ public partial class Graph_Creator : Window
         encoder.Save(stream);
     }
 
-    private void Button_Click_1(object sender, RoutedEventArgs e) => TakeTheChart();
-
-    private void Button_Click_2(object sender, RoutedEventArgs e)
+    private void SaveDocument()
     {
         var saveDialog = new SaveFileDialog
         {
             Title = "Snek-Datei speichern",
             Filter = "Snek-Dateien (*.snek)|*.snek",
+            FileName = "graph.snek",
             DefaultExt = ".snek",
             AddExtension = true
         };
@@ -160,12 +174,36 @@ public partial class Graph_Creator : Window
             return;
         }
 
-        File.WriteAllText(saveDialog.FileName, _serializer.Serialize(_document));
+        try
+        {
+            File.WriteAllText(saveDialog.FileName, _serializer.Serialize(_document));
+            StatusText.Text = $"Gespeichert: {Path.GetFileName(saveDialog.FileName)}";
+        }
+        catch (Exception exception) when (exception is IOException or UnauthorizedAccessException)
+        {
+            ShowFileError(exception, "Datei konnte nicht gespeichert werden");
+        }
     }
 
-    private void Button_Click_3(object sender, RoutedEventArgs e)
+    private static void ShowFileError(Exception exception, string title) =>
+        MessageBox.Show(exception.Message, title, MessageBoxButton.OK, MessageBoxImage.Warning);
+
+    private void Window_KeyDown(object sender, KeyEventArgs e)
     {
-        App.GetRequiredService<Create_Graph>().Show();
-        Close();
+        if (e.Key == Key.S && Keyboard.Modifiers == ModifierKeys.Control)
+        {
+            SaveDocument();
+            e.Handled = true;
+        }
+        else if (e.Key == Key.S && Keyboard.Modifiers == (ModifierKeys.Control | ModifierKeys.Shift))
+        {
+            ExportChart();
+            e.Handled = true;
+        }
+        else if (e.Key == Key.Escape)
+        {
+            GraphNavigation.ShowMain(this);
+            e.Handled = true;
+        }
     }
 }
