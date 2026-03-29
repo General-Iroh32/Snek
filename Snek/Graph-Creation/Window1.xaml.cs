@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+using Snek.Presentation;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -7,247 +6,189 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
-namespace Snek.Graph_Creation
+namespace Snek.Graph_Creation;
+
+public partial class Window1 : VsWindow
 {
-    /// <summary>
-    /// Interaction logic for Window1.xaml
-    /// </summary>
-    public partial class Window1 : Window
+    private const int BoardWidth = 620;
+    private const int BoardHeight = 380;
+    private const int CellSize = 10;
+    private readonly DispatcherTimer _timer = new() { Interval = TimeSpan.FromMilliseconds(90) };
+    private readonly Random _random = new();
+    private readonly List<Point> _snake = [];
+    private Vector _direction = new(1, 0);
+    private Vector _pendingDirection = new(1, 0);
+    private Point _food;
+    private int _score;
+    private bool _isPaused;
+    private bool _isGameOver;
+
+    public Window1()
     {
-        // This list describes the Bonus Red pieces of Food on the Canvas
-        private List<Point> bonusPoints = new List<Point>();
+        InitializeComponent();
+        _timer.Tick += Timer_Tick;
+        ResetGame();
+    }
 
-        // This list describes the body of the snake on the Canvas
-        private List<Point> snakePoints = new List<Point>();
+    protected override void OnClosed(EventArgs e)
+    {
+        _timer.Stop();
+        base.OnClosed(e);
+    }
 
-
-
-        private Brush snakeColor = Brushes.Green;
-        private enum SIZE
+    private void ResetGame()
+    {
+        _timer.Stop();
+        _snake.Clear();
+        for (var index = 0; index < 5; index++)
         {
-            THIN = 4,
-            NORMAL = 6,
-            THICK = 8
+            _snake.Add(new Point(150 - index * CellSize, 190));
+        }
+
+        _direction = new Vector(1, 0);
+        _pendingDirection = _direction;
+        _score = 0;
+        _isPaused = false;
+        _isGameOver = false;
+        ScoreText.Text = "0";
+        GameStateText.Text = "Läuft";
+        GameStateText.Foreground = (Brush)FindResource("VsSuccessBrush");
+        Overlay.Visibility = Visibility.Collapsed;
+        SpawnFood();
+        RenderGame();
+        _timer.Start();
+    }
+
+    private void Timer_Tick(object? sender, EventArgs e)
+    {
+        if (_isPaused || _isGameOver)
+        {
+            return;
+        }
+
+        _direction = _pendingDirection;
+        var head = _snake[0];
+        var next = new Point(
+            head.X + _direction.X * CellSize,
+            head.Y + _direction.Y * CellSize);
+
+        if (next.X < 0 || next.X >= BoardWidth || next.Y < 0 || next.Y >= BoardHeight
+            || _snake.SkipLast(1).Contains(next))
+        {
+            EndGame();
+            return;
+        }
+
+        _snake.Insert(0, next);
+        if (next == _food)
+        {
+            _score += 10;
+            ScoreText.Text = _score.ToString();
+            SpawnFood();
+        }
+        else
+        {
+            _snake.RemoveAt(_snake.Count - 1);
+        }
+
+        RenderGame();
+    }
+
+    private void SpawnFood()
+    {
+        do
+        {
+            _food = new Point(
+                _random.Next(BoardWidth / CellSize) * CellSize,
+                _random.Next(BoardHeight / CellSize) * CellSize);
+        }
+        while (_snake.Contains(_food));
+    }
+
+    private void RenderGame()
+    {
+        GameCanvas.Children.Clear();
+        AddCell(_food, (Brush)FindResource("VsErrorBrush"));
+
+        for (var index = _snake.Count - 1; index >= 0; index--)
+        {
+            AddCell(
+                _snake[index],
+                index == 0 ? (Brush)FindResource("VsAccentHoverBrush") : (Brush)FindResource("VsSuccessBrush"));
+        }
+    }
+
+    private void AddCell(Point point, Brush color)
+    {
+        var cell = new Rectangle
+        {
+            Width = CellSize - 1,
+            Height = CellSize - 1,
+            RadiusX = 2,
+            RadiusY = 2,
+            Fill = color
         };
-        private enum MOVINGDIRECTION
+        Canvas.SetLeft(cell, point.X);
+        Canvas.SetTop(cell, point.Y);
+        GameCanvas.Children.Add(cell);
+    }
+
+    private void EndGame()
+    {
+        _isGameOver = true;
+        _timer.Stop();
+        GameStateText.Text = "Game Over";
+        GameStateText.Foreground = (Brush)FindResource("VsErrorBrush");
+        OverlayTitle.Text = "Game Over";
+        OverlayHint.Text = $"Score: {_score}  •  R für einen Neustart";
+        Overlay.Visibility = Visibility.Visible;
+    }
+
+    private void TogglePause()
+    {
+        if (_isGameOver)
         {
-            UPWARDS = 8,
-            DOWNWARDS = 2,
-            TOLEFT = 4,
-            TORIGHT = 6
+            return;
+        }
+
+        _isPaused = !_isPaused;
+        GameStateText.Text = _isPaused ? "Pausiert" : "Läuft";
+        GameStateText.Foreground = (Brush)FindResource(_isPaused ? "VsWarningBrush" : "VsSuccessBrush");
+        OverlayTitle.Text = "Pausiert";
+        OverlayHint.Text = "Leertaste zum Fortsetzen";
+        Overlay.Visibility = _isPaused ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    private void Window_KeyDown(object sender, KeyEventArgs e)
+    {
+        var requestedDirection = e.Key switch
+        {
+            Key.Up or Key.W => new Vector(0, -1),
+            Key.Down or Key.S => new Vector(0, 1),
+            Key.Left or Key.A => new Vector(-1, 0),
+            Key.Right or Key.D => new Vector(1, 0),
+            _ => (Vector?)null
         };
 
-        private TimeSpan FAST = new TimeSpan(1);
-        private TimeSpan MODERATE = new TimeSpan(10000);
-        private TimeSpan SLOW = new TimeSpan(50000);
-        private TimeSpan DAMNSLOW = new TimeSpan(500000);
-
-
-
-        private Point startingPoint = new Point(100, 100);
-        private Point currentPosition = new Point();
-
-        // Movement direction initialisation
-        private int direction = 0;
-
-        /* Placeholder for the previous movement direction
-         * The snake needs this to avoid its own body.  */
-        private int previousDirection = 0;
-
-        /* Here user can change the size of the snake. 
-         * Possible sizes are THIN, NORMAL and THICK */
-        private int headSize = (int)SIZE.THICK;
-
-
-
-        private int length = 100;
-        private int score = 0;
-        private Random rnd = new Random();
-
-
-
-        public Window1()
+        if (requestedDirection is { } direction && direction + _direction != new Vector(0, 0))
         {
-            InitializeComponent();
-            DispatcherTimer timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(timer_Tick);
-
-            /* Here user can change the speed of the snake. 
-             * Possible speeds are FAST, MODERATE, SLOW and DAMNSLOW */
-            timer.Interval = MODERATE;
-            timer.Start();
-
-
-            this.KeyDown += new KeyEventHandler(OnButtonKeyDown);
-            paintSnake(startingPoint);
-            currentPosition = startingPoint;
-
-            // Instantiate Food Objects
-            for (int n = 0; n < 10; n++)
-            {
-                paintBonus(n);
-            }
+            _pendingDirection = direction;
+            e.Handled = true;
         }
-
-
-
-        private void paintSnake(Point currentposition)
+        else if (e.Key == Key.Space)
         {
-
-            /* This method is used to paint a frame of the snake´s body
-             * each time it is called. */
-
-
-            Ellipse newEllipse = new Ellipse();
-            newEllipse.Fill = snakeColor;
-            newEllipse.Width = headSize;
-            newEllipse.Height = headSize;
-
-            Canvas.SetTop(newEllipse, currentposition.Y);
-            Canvas.SetLeft(newEllipse, currentposition.X);
-
-            int count = paintCanvas.Children.Count;
-            paintCanvas.Children.Add(newEllipse);
-            snakePoints.Add(currentposition);
-
-
-            // Restrict the tail of the snake
-            if (count > length)
-            {
-                paintCanvas.Children.RemoveAt(count - length + 9);
-                snakePoints.RemoveAt(count - length);
-            }
+            TogglePause();
+            e.Handled = true;
         }
-
-
-        private void paintBonus(int index)
+        else if (e.Key == Key.R)
         {
-            Point bonusPoint = new Point(rnd.Next(5, 620), rnd.Next(5, 380));
-
-
-
-            Ellipse newEllipse = new Ellipse();
-            newEllipse.Fill = Brushes.Red;
-            newEllipse.Width = headSize;
-            newEllipse.Height = headSize;
-
-            Canvas.SetTop(newEllipse, bonusPoint.Y);
-            Canvas.SetLeft(newEllipse, bonusPoint.X);
-            paintCanvas.Children.Insert(index, newEllipse);
-            bonusPoints.Insert(index, bonusPoint);
-
+            ResetGame();
+            e.Handled = true;
         }
-
-
-        private void timer_Tick(object? sender, EventArgs e)
+        else if (e.Key == Key.Escape)
         {
-            // Expand the body of the snake to the direction of movement
-
-            switch (direction)
-            {
-                case (int)MOVINGDIRECTION.DOWNWARDS:
-                    currentPosition.Y += 1;
-                    paintSnake(currentPosition);
-                    break;
-                case (int)MOVINGDIRECTION.UPWARDS:
-                    currentPosition.Y -= 1;
-                    paintSnake(currentPosition);
-                    break;
-                case (int)MOVINGDIRECTION.TOLEFT:
-                    currentPosition.X -= 1;
-                    paintSnake(currentPosition);
-                    break;
-                case (int)MOVINGDIRECTION.TORIGHT:
-                    currentPosition.X += 1;
-                    paintSnake(currentPosition);
-                    break;
-            }
-
-            // Restrict to boundaries of the Canvas
-            if ((currentPosition.X < 5) || (currentPosition.X > 620) ||
-                (currentPosition.Y < 5) || (currentPosition.Y > 380))
-                GameOver();
-
-
-            // Hitting a bonus Point causes the lengthen-Snake Effect
-            int n = 0;
-            foreach (Point point in bonusPoints)
-            {
-
-                if ((Math.Abs(point.X - currentPosition.X) < headSize) &&
-                    (Math.Abs(point.Y - currentPosition.Y) < headSize))
-                {
-                    length += 10;
-                    score += 10;
-
-                    // In the case of food consumption, erase the food object
-                    // from the list of bonuses as well as from the canvas
-                    bonusPoints.RemoveAt(n);
-                    paintCanvas.Children.RemoveAt(n);
-                    paintBonus(n);
-                    break;
-                }
-                n++;
-            }
-
-            // Restrict hits to body of Snake
-
-
-            for (int q = 0; q < (snakePoints.Count - headSize * 2); q++)
-            {
-                Point point = new Point(snakePoints[q].X, snakePoints[q].Y);
-                if ((Math.Abs(point.X - currentPosition.X) < (headSize)) &&
-                     (Math.Abs(point.Y - currentPosition.Y) < (headSize)))
-                {
-                    GameOver();
-                    break;
-                }
-
-            }
-
-
-
-
-        }
-
-
-
-        private void OnButtonKeyDown(object sender, KeyEventArgs e)
-        {
-
-
-
-            switch (e.Key)
-            {
-                case Key.Down:
-                    if (previousDirection != (int)MOVINGDIRECTION.UPWARDS)
-                        direction = (int)MOVINGDIRECTION.DOWNWARDS;
-                    break;
-                case Key.Up:
-                    if (previousDirection != (int)MOVINGDIRECTION.DOWNWARDS)
-                        direction = (int)MOVINGDIRECTION.UPWARDS;
-                    break;
-                case Key.Left:
-                    if (previousDirection != (int)MOVINGDIRECTION.TORIGHT)
-                        direction = (int)MOVINGDIRECTION.TOLEFT;
-                    break;
-                case Key.Right:
-                    if (previousDirection != (int)MOVINGDIRECTION.TOLEFT)
-                        direction = (int)MOVINGDIRECTION.TORIGHT;
-                    break;
-
-            }
-            previousDirection = direction;
-
-        }
-
-
-
-        private void GameOver()
-        {
-            this.Close();
-
-
+            Close();
+            e.Handled = true;
         }
     }
 }
