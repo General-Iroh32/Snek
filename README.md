@@ -23,7 +23,7 @@ Snek Studio creates line, column, row, pie and doughnut charts from user-provide
 
 ## Screenshots
 
-These are screenshots from the running application, not mock-ups.
+These are real screenshots of the original UI. Updated screenshots of the Visual Studio-inspired workspace will replace them after the Windows VM visual test.
 
 ![Snek Studio home screen](Snek/Images/Snek_ss.png)
 
@@ -67,6 +67,8 @@ dotnet run --project Snek/Snek.csproj
 ```
 
 The application database is created at `%LOCALAPPDATA%\Snek\snek.db`.
+
+For a complete visual, keyboard, graph export, persistence and Snake checklist, follow the [Windows VM test plan](docs/WINDOWS_VM_TESTING.md).
 
 ## Test and validate
 
