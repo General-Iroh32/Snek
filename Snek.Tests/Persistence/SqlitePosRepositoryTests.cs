@@ -1,6 +1,7 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Snek.Core.Models;
+using Snek.Core.Services;
 using Snek.Infrastructure.Persistence;
 
 namespace Snek.Tests.Persistence;
@@ -39,16 +40,21 @@ public sealed class SqlitePosRepositoryTests
 
         var factory = new TestDbContextFactory(options);
         var repository = new SqlitePosRepository(factory);
+        var mitwirkendeService = new MitwirkendeService(repository);
+        var arbeitenService = new ArbeitenService(repository);
+        var zeitenService = new ZeitenService(repository);
 
-        var contributors = await repository.GetMitwirkendeAsync(cancellationToken);
-        var aliceWork = await repository.GetArbeitenAsync(
+        var contributors = await mitwirkendeService.GetAllAsync(cancellationToken);
+        var aliceWork = await arbeitenService.GetByMitwirkendeAsync(
             contributors.Single(item => item.Vorname == "Alice").Id,
             cancellationToken);
-        var aliceTimes = await repository.GetZeitenAsync(aliceWork.Single().Id, cancellationToken);
+        var aliceTimes = await zeitenService.GetByArbeitenAsync(aliceWork.Single().Id, cancellationToken);
+        var allTimes = await zeitenService.GetAllAsync(cancellationToken);
 
         Assert.Equal(2, contributors.Count);
         Assert.Equal("Analyse", Assert.Single(aliceWork).Art);
         Assert.Equal(1, Assert.Single(aliceTimes).Stunden);
+        Assert.Equal(2, allTimes.Count);
     }
 
     [Fact]

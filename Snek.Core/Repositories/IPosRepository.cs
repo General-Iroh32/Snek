@@ -13,4 +13,6 @@ public interface IPosRepository
     Task<IReadOnlyList<Zeiten>> GetZeitenAsync(
         int arbeitenId,
         CancellationToken cancellationToken = default);
+
+    Task<IReadOnlyList<Zeiten>> GetAllZeitenAsync(CancellationToken cancellationToken = default);
 }
