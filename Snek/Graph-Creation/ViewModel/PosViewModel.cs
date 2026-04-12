@@ -1,12 +1,14 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using Snek.Core.Models;
-using Snek.Core.Repositories;
 using Snek.Core.Services;
 using System.Collections.ObjectModel;
 
 namespace Snek.Graph_Creation.ViewModel;
 
-public sealed class PosViewModel(IPosRepository repository) : ObservableObject
+public sealed class PosViewModel(
+    IMitwirkendeService mitwirkendeService,
+    IArbeitenService arbeitenService,
+    IZeitenService zeitenService) : ObservableObject
 {
     private bool _isBusy;
     private string? _errorMessage;
@@ -59,7 +61,7 @@ public sealed class PosViewModel(IPosRepository repository) : ObservableObject
 
         await ExecuteAsync(async () =>
         {
-            Replace(AllMitwirkende, await repository.GetMitwirkendeAsync(cancellationToken));
+            Replace(AllMitwirkende, await mitwirkendeService.GetAllAsync(cancellationToken));
         });
     }
 
@@ -82,7 +84,7 @@ public sealed class PosViewModel(IPosRepository repository) : ObservableObject
         {
             Replace(
                 ArbeitenByMitwirkende,
-                await repository.GetArbeitenAsync(mitwirkende.Id, cancellationToken));
+                await arbeitenService.GetByMitwirkendeAsync(mitwirkende.Id, cancellationToken));
         });
     }
 
@@ -101,7 +103,7 @@ public sealed class PosViewModel(IPosRepository repository) : ObservableObject
 
         await ExecuteAsync(async () =>
         {
-            var entries = await repository.GetZeitenAsync(arbeiten.Id, cancellationToken);
+            var entries = await zeitenService.GetByArbeitenAsync(arbeiten.Id, cancellationToken);
             Replace(ZeitenByArbeiten, entries);
             Gesamtzeit = TimeSummary.Format(TimeSummary.Calculate(entries));
         });

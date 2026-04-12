@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Snek.Core.Graphs;
 using Snek.Core.Repositories;
+using Snek.Core.Services;
 using Snek.Graph_Creation;
 using Snek.Graph_Creation.ViewModel;
 using Snek.Infrastructure.Persistence;
@@ -25,6 +26,10 @@ public partial class App : Application
 
         builder.Services.AddPooledDbContextFactory<SnekDbContext>(options => options.UseSqlite(connectionString));
         builder.Services.AddSingleton<IPosRepository, SqlitePosRepository>();
+        builder.Services.AddSingleton<IMitwirkendeService, MitwirkendeService>();
+        builder.Services.AddSingleton<IArbeitenService, ArbeitenService>();
+        builder.Services.AddSingleton<IZeitenService, ZeitenService>();
+        builder.Services.AddSingleton<SeedService>();
         builder.Services.AddSingleton<DatabaseInitializer>();
         builder.Services.AddSingleton<GraphDocumentSerializer>();
         builder.Services.AddSingleton<GraphValueParser>();

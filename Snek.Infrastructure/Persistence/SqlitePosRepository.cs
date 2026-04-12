@@ -40,4 +40,14 @@ public sealed class SqlitePosRepository(IDbContextFactory<SnekDbContext> context
             .OrderBy(item => item.Id)
             .ToListAsync(cancellationToken);
     }
+
+    public async Task<IReadOnlyList<Zeiten>> GetAllZeitenAsync(
+        CancellationToken cancellationToken = default)
+    {
+        await using var context = await contextFactory.CreateDbContextAsync(cancellationToken);
+        return await context.Zeiten
+            .AsNoTracking()
+            .OrderBy(item => item.Id)
+            .ToListAsync(cancellationToken);
+    }
 }
