@@ -4,14 +4,23 @@
   <p>A modernized Windows desktop application for creating, saving and exporting charts.</p>
 
   [![Windows CI](https://github.com/General-Iroh32/Snek/actions/workflows/ci.yml/badge.svg)](https://github.com/General-Iroh32/Snek/actions/workflows/ci.yml)
+  [![Snek Web](https://github.com/General-Iroh32/Snek/actions/workflows/pages.yml/badge.svg)](https://general-iroh32.github.io/Snek/)
   ![.NET 10](https://img.shields.io/badge/.NET-10.0-512BD4)
   ![WPF](https://img.shields.io/badge/UI-WPF-0C54C2)
   [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 </div>
 
+<div align="center">
+  <a href="https://general-iroh32.github.io/Snek/"><strong>Live browser demo</strong></a>
+  ·
+  <a href="https://github.com/General-Iroh32/Snek/releases/latest/download/Snek-Studio-win-x64.zip"><strong>Download for Windows</strong></a>
+</div>
+
 ## What it does
 
 Snek Studio creates line, column, row, pie and doughnut charts from user-provided values. A chart can be exported as PNG or stored in the small, human-readable `.snek` format and opened again later. The application also contains a POS effort overview backed by SQLite and the original Snake mini-game.
+
+`Snek.Web` is an interactive Blazor WebAssembly companion for recruiters and visitors who do not have Windows available. It references the same `Snek.Core` project as the WPF application, so graph parsing, validation and `.snek` serialization in the browser are the real shared domain code rather than a mock-up.
 
 - Windows 10 version 2004 or newer
 - .NET 10 LTS and modern WPF
@@ -38,8 +47,10 @@ flowchart LR
     INFRA["Snek.Infrastructure\nEF Core repository and migrations"]
     DB[("SQLite\n%LOCALAPPDATA%/Snek/snek.db")]
     TESTS["Snek.Tests\nxUnit v3 unit and integration tests"]
+    WEB["Snek.Web\nBlazor WebAssembly live demo"]
 
     UI --> CORE
+    WEB --> CORE
     UI --> INFRA
     INFRA --> CORE
     INFRA --> DB
@@ -122,6 +133,8 @@ Every pull request and push to `main` runs on a genuine GitHub-hosted Windows ru
 6. uploads `Snek-win-x64-<commit>` as a downloadable workflow artifact.
 
 The artifact requires the .NET 10 Desktop Runtime on the destination machine.
+
+Tagged releases additionally publish a self-contained `Snek-Studio-win-x64.zip`, which does not require a preinstalled .NET runtime. The permanent latest-release URL is linked at the top of this README.
 
 ## Technology
 
