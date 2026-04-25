@@ -1,0 +1,340 @@
+@page "/"
+@inject IJSRuntime JavaScript
+
+<PageTitle>Snek Studio · Live Demo</PageTitle>
+
+<header class="site-header">
+    <a class="brand" href="#top" aria-label="Snek Studio Startseite">
+        <img src="snek-logo.png" alt="" />
+        <span>Snek Studio</span>
+    </a>
+    <nav aria-label="Hauptnavigation">
+        <a href="#studio">Live Demo</a>
+        <a href="#pos">POS</a>
+        <a href="#architecture">Architektur</a>
+    </nav>
+    <a class="header-link" href="https://github.com/General-Iroh32/Snek" target="_blank" rel="noreferrer">GitHub ↗</a>
+</header>
+
+<main id="top">
+    <section class="hero section-shell">
+        <div class="hero-copy">
+            <p class="eyebrow"><span class="status-dot"></span> Live im Browser · .NET 10 WebAssembly</p>
+            <h1>Ein altes Schulprojekt.<br/><span>Wie eine echte Software modernisiert.</span></h1>
+            <p class="hero-lead">
+                Snek Studio erstellt und exportiert Graphen, wertet lokale POS-Daten aus und zeigt,
+                wie aus einer alten WPF-Anwendung eine getestete, mehrschichtige .NET-Lösung wird.
+            </p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="#studio">Demo ausprobieren</a>
+                <a class="button button-secondary"
+                   href="https://github.com/General-Iroh32/Snek/releases/latest/download/Snek-Studio-win-x64.zip">
+                    Windows-Version ↓
+                </a>
+            </div>
+            <div class="proof-strip" aria-label="Projektstatus">
+                <span><strong>13</strong> automatisierte Tests</span>
+                <span><strong>0</strong> bekannte Paketlücken</span>
+                <span><strong>6</strong> Graphentypen</span>
+            </div>
+        </div>
+        <aside class="hero-panel" aria-label="Technologien">
+            <div class="panel-kicker">SNEK.SLN</div>
+            <div class="solution-line active"><span>▾</span> Snek</div>
+            <div class="solution-line child"><i class="dot purple"></i> Snek · WPF Desktop</div>
+            <div class="solution-line child"><i class="dot blue"></i> Snek.Web · WebAssembly</div>
+            <div class="solution-line child"><i class="dot green"></i> Snek.Core · Domain</div>
+            <div class="solution-line child"><i class="dot orange"></i> Snek.Infrastructure · SQLite</div>
+            <div class="solution-line child"><i class="dot yellow"></i> Snek.Tests · xUnit</div>
+            <div class="terminal-block">
+                <span class="terminal-prompt">PS&gt;</span> dotnet test
+                <strong>Test run successful.</strong>
+                <small>13 passed · 0 failed</small>
+            </div>
+        </aside>
+    </section>
+
+    <section id="studio" class="demo-section section-shell">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">INTERAKTIVE DEMO</p>
+                <h2>Graphen direkt ausprobieren</h2>
+            </div>
+            <p>Die Eingabe und das `.snek`-Dateiformat verwenden dieselbe Core-Bibliothek wie die Windows-App.</p>
+        </div>
+
+        <div class="studio-window">
+            <div class="studio-titlebar">
+                <div class="studio-title"><img src="snek-logo.png" alt="" /> Snek Studio <span>Graph workspace</span></div>
+                <div class="window-actions" aria-hidden="true"><span>—</span><span>□</span><span>×</span></div>
+            </div>
+            <div class="studio-body">
+                <aside class="graph-sidebar">
+                    <span class="sidebar-label">GRAPHTYP</span>
+                    @foreach (var type in GraphTypes)
+                    {
+                        <button class="graph-type @(SelectedType == type ? "selected" : null)"
+                                type="button" @onclick="() => SelectGraphType(type)">
+                            <span>@GraphIcon(type)</span>
+                            @GraphLabel(type)
+                        </button>
+                    }
+                    <div class="sidebar-note">
+                        <strong>Snek.Core</strong>
+                        <span>Parser + Serializer werden im Browser ausgeführt.</span>
+                    </div>
+                </aside>
+
+                <div class="chart-workspace">
+                    <div class="chart-toolbar">
+                        <div>
+                            <strong>@GraphLabel(SelectedType)</strong>
+                            <span>@ValueSummary</span>
+                        </div>
+                        <div class="toolbar-actions">
+                            <label class="button button-compact button-secondary file-label" for="snek-file">.snek öffnen</label>
+                            <InputFile id="snek-file" class="file-input" OnChange="OpenGraphFileAsync" accept=".snek,text/plain" />
+                            <button class="button button-compact button-secondary" type="button" @onclick="DownloadGraphAsync" disabled="@(!HasValidValues)">Speichern</button>
+                            <button class="button button-compact button-primary" type="button" @onclick="ExportPngAsync" disabled="@(!HasValidValues)">PNG exportieren</button>
+                        </div>
+                    </div>
+                    <div class="chart-surface">
+                        <canvas @ref="ChartCanvas" aria-label="Vorschau für @GraphLabel(SelectedType)"></canvas>
+                    </div>
+                    <div class="studio-status">
+                        <span class="status-dot"></span>
+                        @(HasValidValues ? "Bereit" : "Eingabe prüfen")
+                        <span class="status-right">Snek.Core · Blazor WASM</span>
+                    </div>
+                </div>
+
+                <aside class="input-panel">
+                    <div class="input-heading">
+                        <span>WERTE</span>
+                        <button type="button" @onclick="UseSampleData">Beispiel</button>
+                    </div>
+                    <textarea value="@ValuesText" @oninput="HandleValuesInput"
+                              aria-label="Graphwerte"
+                              spellcheck="false"></textarea>
+                    <p class="input-help">Eine Zahl pro Zeile oder mit Semikolon. Punkt und Komma funktionieren.</p>
+                    @if (ValidationError is not null)
+                    {
+                        <p class="validation-error">@ValidationError</p>
+                    }
+                    else
+                    {
+                        <p class="validation-ok">✓ @ValueSummary erkannt</p>
+                    }
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section id="pos" class="pos-section section-shell">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">ORIGINALDATEN, SAUBER MODELLIERT</p>
+                <h2>POS-Auswertung</h2>
+            </div>
+            <p>Der wiederhergestellte Seed-Service liefert fünf Mitwirkende, fünf Arbeiten und fünf Zeitwerte.</p>
+        </div>
+        <div class="pos-browser">
+            <div class="contributors" role="list" aria-label="Mitwirkende">
+                @foreach (var entry in PosEntries)
+                {
+                    <button type="button" class="contributor @(SelectedEntry.Id == entry.Id ? "active" : null)"
+                            @onclick="() => SelectedEntry = entry">
+                        <span class="avatar">@Initials(entry.Name)</span>
+                        <span><strong>@entry.Name</strong><small>Mitwirkende #@entry.Id</small></span>
+                        <b>›</b>
+                    </button>
+                }
+            </div>
+            <div class="work-detail">
+                <p class="detail-label">AUSGEWÄHLTE ARBEIT</p>
+                <h3>@SelectedEntry.Work</h3>
+                <p>@SelectedEntry.Name ist dem ursprünglichen Arbeitspaket eindeutig zugeordnet.</p>
+                <div class="time-display">
+                    <span>Erfasste Zeit</span>
+                    <strong>@SelectedEntry.Duration</strong>
+                </div>
+                <div class="data-path">
+                    <span>Mitwirkende</span><i></i><span>Arbeiten</span><i></i><span>Zeiten</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="architecture-section section-shell">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">ARCHITEKTUR</p>
+                <h2>Zwei Oberflächen, ein gemeinsamer Kern</h2>
+            </div>
+            <p>Die Web-Demo ist kein Screenshot: C# und die echte Domain-Logik laufen über WebAssembly im Browser.</p>
+        </div>
+        <div class="architecture-grid">
+            <article><span>01</span><h3>Presentation</h3><p>WPF für Windows und Blazor WebAssembly für den sofortigen Browserzugang.</p><code>Snek · Snek.Web</code></article>
+            <article><span>02</span><h3>Domain Core</h3><p>Graphparser, Dokumentformat, Modelle und Zeitberechnung ohne UI-Abhängigkeit.</p><code>Snek.Core</code></article>
+            <article><span>03</span><h3>Infrastructure</h3><p>EF Core, idempotenter Seed-Service und lokale SQLite-Migrationen.</p><code>Snek.Infrastructure</code></article>
+            <article><span>04</span><h3>Quality Gate</h3><p>Windows-Build, xUnit-Tests, Paket-Audit, Pages- und Release-Pipeline.</p><code>GitHub Actions</code></article>
+        </div>
+    </section>
+
+    <section class="download-section section-shell">
+        <div>
+            <p class="eyebrow">ECHTE DESKTOP-APP</p>
+            <h2>Du willst die WPF-Version testen?</h2>
+            <p>Das selbstenthaltende Windows-Paket benötigt keine vorherige .NET-Installation.</p>
+        </div>
+        <div class="download-actions">
+            <a class="button button-primary" href="https://github.com/General-Iroh32/Snek/releases/latest/download/Snek-Studio-win-x64.zip">Windows x64 herunterladen</a>
+            <a class="button button-secondary" href="https://github.com/General-Iroh32/Snek" target="_blank" rel="noreferrer">Source ansehen ↗</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="brand"><img src="snek-logo.png" alt=""/><span>Snek Studio</span></div>
+    <p>Modernized with .NET 10 · WPF · Blazor · SQLite</p>
+    <a href="#top">Nach oben ↑</a>
+</footer>
+
+@code {
+    private static readonly GraphType[] GraphTypes = Enum.GetValues<GraphType>();
+    private static readonly DemoPosEntry[] PosEntries =
+    [
+        new(1, "Dzovani Koller", "PRE bezogen", "15:13:57"),
+        new(2, "Florian Kozak", "POS bezogen", "13:26:13"),
+        new(3, "Karl-Gabriel Jimenez", "PRE bezogen", "14:35:16"),
+        new(4, "Jonas Taferner", "POS bezogen", "13:45:37"),
+        new(5, "Oliver Mate", "PRE bezogen", "15:50:14")
+    ];
+
+    private readonly GraphValueParser _parser = new();
+    private readonly GraphDocumentSerializer _serializer = new();
+    private ElementReference ChartCanvas;
+    private GraphType SelectedType = GraphType.Line;
+    private DemoPosEntry SelectedEntry = PosEntries[0];
+    private string ValuesText = "12\n18,5\n9\n24\n16";
+    private IReadOnlyList<double> ParsedValues = [];
+    private string? ValidationError;
+    private bool _chartNeedsRender = true;
+
+    private bool HasValidValues => ParsedValues.Count > 0 && ValidationError is null;
+
+    private string ValueSummary => ParsedValues.Count == 1
+        ? "1 Datenpunkt"
+        : $"{ParsedValues.Count} Datenpunkte";
+
+    protected override void OnInitialized() => ParseValues();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!_chartNeedsRender || !HasValidValues)
+        {
+            return;
+        }
+
+        _chartNeedsRender = false;
+        await JavaScript.InvokeVoidAsync("snekCharts.render", ChartCanvas, SelectedType.ToString(), ParsedValues);
+    }
+
+    private void HandleValuesInput(ChangeEventArgs eventArgs)
+    {
+        ValuesText = eventArgs.Value?.ToString() ?? string.Empty;
+        ParseValues();
+    }
+
+    private void ParseValues()
+    {
+        try
+        {
+            ParsedValues = _parser.ParseText(ValuesText);
+            ValidationError = null;
+            _chartNeedsRender = true;
+        }
+        catch (FormatException exception)
+        {
+            ParsedValues = [];
+            ValidationError = exception.Message;
+        }
+    }
+
+    private void SelectGraphType(GraphType type)
+    {
+        SelectedType = type;
+        _chartNeedsRender = true;
+    }
+
+    private void UseSampleData()
+    {
+        ValuesText = "12\n18,5\n9\n24\n16";
+        ParseValues();
+    }
+
+    private async Task OpenGraphFileAsync(InputFileChangeEventArgs eventArgs)
+    {
+        try
+        {
+            await using var stream = eventArgs.File.OpenReadStream(1_048_576);
+            using var reader = new StreamReader(stream);
+            var document = _serializer.Deserialize(await reader.ReadToEndAsync());
+            SelectedType = document.Type;
+            ValuesText = string.Join(
+                Environment.NewLine,
+                document.Values.Select(value => value.ToString(CultureInfo.InvariantCulture)));
+            ParseValues();
+        }
+        catch (Exception exception) when (exception is IOException or FormatException or ArgumentException)
+        {
+            ValidationError = $"Datei konnte nicht geöffnet werden: {exception.Message}";
+        }
+    }
+
+    private async Task DownloadGraphAsync()
+    {
+        if (!HasValidValues)
+        {
+            return;
+        }
+
+        var content = _serializer.Serialize(new GraphDocument(SelectedType, ParsedValues));
+        await JavaScript.InvokeVoidAsync("snekCharts.downloadText", "snek-graph.snek", content);
+    }
+
+    private async Task ExportPngAsync()
+    {
+        if (HasValidValues)
+        {
+            await JavaScript.InvokeVoidAsync("snekCharts.downloadCanvas", ChartCanvas, "snek-graph.png");
+        }
+    }
+
+    private static string GraphLabel(GraphType type) => type switch
+    {
+        GraphType.Line => "Liniendiagramm",
+        GraphType.VerticalLine => "Vertikale Linie",
+        GraphType.Column => "Säulendiagramm",
+        GraphType.Row => "Balkendiagramm",
+        GraphType.Pie => "Kreisdiagramm",
+        GraphType.Doughnut => "Ringdiagramm",
+        _ => type.ToDisplayName()
+    };
+
+    private static string GraphIcon(GraphType type) => type switch
+    {
+        GraphType.Line => "╱",
+        GraphType.VerticalLine => "│",
+        GraphType.Column => "▥",
+        GraphType.Row => "▰",
+        GraphType.Pie => "◕",
+        GraphType.Doughnut => "◉",
+        _ => "•"
+    };
+
+    private static string Initials(string name) => string.Concat(
+        name.Split(' ', StringSplitOptions.RemoveEmptyEntries).Take(2).Select(part => part[0]));
+
+    private sealed record DemoPosEntry(int Id, string Name, string Work, string Duration);
+}

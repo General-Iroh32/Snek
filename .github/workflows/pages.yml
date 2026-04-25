@@ -1,0 +1,71 @@
+name: Deploy Snek Web
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Snek.Web/**'
+      - 'Snek.Core/**'
+      - 'Directory.Build.props'
+      - 'Directory.Packages.props'
+      - 'global.json'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build browser demo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install .NET 10 SDK
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+          cache: true
+          cache-dependency-path: |
+            Directory.Packages.props
+            **/*.csproj
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Publish Snek Web
+        run: dotnet publish Snek.Web/Snek.Web.csproj --configuration Release --output artifacts/pages --nologo
+
+      - name: Configure project base path
+        shell: bash
+        run: |
+          sed -i 's|<base href="/" />|<base href="/Snek/" />|' artifacts/pages/wwwroot/index.html
+          cp artifacts/pages/wwwroot/index.html artifacts/pages/wwwroot/404.html
+          touch artifacts/pages/wwwroot/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: artifacts/pages/wwwroot
+
+  deploy:
+    name: Publish GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

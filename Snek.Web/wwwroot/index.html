@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#181818" />
+    <meta name="description" content="Snek Studio – interaktive Browser-Demo der modernisierten .NET-10-WPF-Anwendung." />
+    <meta property="og:title" content="Snek Studio" />
+    <meta property="og:description" content="Graphen erstellen, .snek-Dateien testen und die geteilte .NET-Domain-Logik direkt im Browser erleben." />
+    <meta property="og:type" content="website" />
+    <title>Snek Studio · Live Demo</title>
+    <base href="/" />
+    <link rel="preload" id="webassembly" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" type="image/png" href="snek-logo.png" />
+    <script type="importmap"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="boot-screen">
+            <img src="snek-logo.png" alt="" />
+            <div class="boot-copy">
+                <strong>Snek Studio wird geladen</strong>
+                <span>.NET läuft gleich direkt in deinem Browser.</span>
+            </div>
+            <div class="loading-bar"><span></span></div>
+        </div>
+    </div>
+
+    <div id="blazor-error-ui">
+        Die Demo konnte nicht geladen werden.
+        <a href="." class="reload">Neu laden</a>
+        <button class="dismiss" type="button">Schließen</button>
+    </div>
+    <script src="js/snekCharts.js"></script>
+    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
+</body>
+</html>
