@@ -1,7 +1,7 @@
 <div align="center">
   <img src="Snek/Images/Snek_PNG.png" alt="Snek logo" width="96">
   <h1>Snek Studio</h1>
-  <p>A modernized Windows desktop application for creating, saving and exporting charts.</p>
+  <p>An old school project brought back to life with a supported, modern .NET stack.</p>
 
   [![Windows CI](https://github.com/General-Iroh32/Snek/actions/workflows/ci.yml/badge.svg)](https://github.com/General-Iroh32/Snek/actions/workflows/ci.yml)
   [![Snek Web](https://github.com/General-Iroh32/Snek/actions/workflows/pages.yml/badge.svg)](https://general-iroh32.github.io/Snek/)
@@ -16,11 +16,17 @@
   <a href="https://github.com/General-Iroh32/Snek/releases/latest/download/Snek-Studio-win-x64.zip"><strong>Download for Windows</strong></a>
 </div>
 
+## Why this project was modernized
+
+Snek started as a school project and originally targeted .NET 5. I returned to it because I cannot stand leaving working software stuck on unsupported runtimes and abandoned dependencies. The goal was not to disguise its origins or replace everything with a different application, but to preserve the original ideas while bringing the engineering up to date.
+
+The chart creator, SQLite-backed POS overview, original seed data and Snake mini-game are still part of the project. Around them, the application was migrated to .NET 10, vulnerable and outdated packages were replaced, domain and persistence logic were separated from WPF, and automated tests, CI, releases and a browser version were added.
+
 ## What it does
 
 Snek Studio creates line, column, row, pie and doughnut charts from user-provided values. A chart can be exported as PNG or stored in the small, human-readable `.snek` format and opened again later. The application also contains a POS effort overview backed by SQLite and the original Snake mini-game.
 
-`Snek.Web` is an interactive Blazor WebAssembly companion for recruiters and visitors who do not have Windows available. It references the same `Snek.Core` project as the WPF application, so graph parsing, validation and `.snek` serialization in the browser are the real shared domain code rather than a mock-up.
+`Snek.Web` is an interactive Blazor WebAssembly companion for anyone who does not have Windows available. It references the same `Snek.Core` project as the WPF application, so graph parsing, validation and `.snek` serialization in the browser are the real shared domain code rather than a mock-up.
 
 - Windows 10 version 2004 or newer
 - .NET 10 LTS and modern WPF
