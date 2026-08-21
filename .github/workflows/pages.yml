@@ -40,7 +40,7 @@ jobs:
             **/*.csproj
 
       - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Publish Snek Web
         run: dotnet publish Snek.Web/Snek.Web.csproj --configuration Release --output artifacts/pages --nologo
