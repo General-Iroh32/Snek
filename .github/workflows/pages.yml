@@ -41,6 +41,8 @@ jobs:
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
+        with:
+          enablement: true
 
       - name: Publish Snek Web
         run: dotnet publish Snek.Web/Snek.Web.csproj --configuration Release --output artifacts/pages --nologo
