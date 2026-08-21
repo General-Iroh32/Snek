@@ -71,7 +71,7 @@ jobs:
           --nologo
 
       - name: Upload release artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Snek-win-x64-${{ github.sha }}
           path: artifacts/Snek-win-x64/**
