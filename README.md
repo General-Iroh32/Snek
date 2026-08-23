@@ -40,11 +40,13 @@ Snek Studio creates line, column, row, pie and doughnut charts from user-provide
 
 ## Screenshots
 
-These are real screenshots of the original UI. Updated screenshots of the Visual Studio-inspired workspace will replace them after the Windows VM visual test.
+The browser companion uses the same Visual Studio-inspired workspace and the
+same graph domain library as the Windows application. These screenshots were
+captured from the deployed WebAssembly build.
 
-![Snek Studio home screen](Snek/Images/Snek_ss.png)
+![Snek Studio graph workspace running in the browser](docs/assets/snek-web-workspace.jpg)
 
-![Chart creation and export](Snek/Images/Snek_usage.png)
+![Snek Studio POS effort overview running in the browser](docs/assets/snek-web-pos.jpg)
 
 ## Architecture
 
