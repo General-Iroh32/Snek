@@ -16,6 +16,8 @@
   <a href="https://github.com/General-Iroh32/Snek/releases/latest/download/Snek-Studio-win-x64.zip"><strong>Download for Windows</strong></a>
 </div>
 
+Choose the browser demo for a zero-install tour of the shared graph domain, or download the Windows build for the complete WPF workspace, SQLite-backed POS view and desktop export flow.
+
 ## Why this project was modernized
 
 Snek started as a school project and originally targeted .NET 5. I returned to it because I cannot stand leaving working software stuck on unsupported runtimes and abandoned dependencies. The goal was not to disguise its origins or replace everything with a different application, but to preserve the original ideas while bringing the engineering up to date.
